@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "21D48039AB8DB0E2E80069F5DBBD5B7639B76892",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5D7004AFA0F8477414D2D2070527EE503A955943" : 0,
+    "21D48039AB8DB0E2E80069F5DBBD5B7639B76892" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2E99EE3B-E9B5-48B8-9B21-129D465AE1AF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5D7004AFA0F8477414D2D2070527EE503A955943" : "SB-oxeron\/SpriteBuilder\/libs\/cocos2d-iphone\/",
+    "21D48039AB8DB0E2E80069F5DBBD5B7639B76892" : "SB-oxeron\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PROJECTNAME",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Support\/PROJECTNAME.spritebuilder\/PROJECTNAME.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/oxeron\/SpriteBuilder",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "21D48039AB8DB0E2E80069F5DBBD5B7639B76892"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/oxeron\/cocos2d-objc.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5D7004AFA0F8477414D2D2070527EE503A955943"
+    }
+  ]
+}
