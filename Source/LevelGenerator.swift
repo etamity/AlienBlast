@@ -75,14 +75,14 @@ class LevelGenerator: CCNode {
         
   
         self.level = newlevel;
-        let newCountOfTime = 1 + Int(newlevel * (newlevel % 5))
-        if (newCountOfTime < 5){
-            self.countOfTime = newCountOfTime;
-        }else{
-            
-            self.countOfTime = 5 ;
-        }
-      
+//        let newCountOfTime = 1 + Int(newlevel * (newlevel % 5))
+//        if (newCountOfTime < 5){
+//            self.countOfTime = newCountOfTime;
+//        }else{
+//            
+//            self.countOfTime = 5 ;
+//        }
+//      
         self.timeSpeed = self.timeSpeed - Double(newlevel) * 0.01
         self.goNextLevel()
 

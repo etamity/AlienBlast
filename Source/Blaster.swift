@@ -22,7 +22,8 @@ class Blaster: CCSprite {
         self._offsetDegree = 0 ;
         self.userInteractionEnabled = false;
         self.physicsBody.collisionType = "shape";
-        self.physicsBody.affectedByGravity = true
+        //self.physicsBody.affectedByGravity = true
+        self.physicsBody.sensor = true
         followNode = CCNode()
         self.addChild(followNode);
 
