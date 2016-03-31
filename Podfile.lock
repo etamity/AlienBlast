@@ -1,0 +1,45 @@
+PODS:
+  - Google/AdMob (2.0.3):
+    - Google/Core
+    - GoogleMobileAds (~> 7.3)
+  - Google/Analytics (2.0.3):
+    - Google/Core
+    - GoogleAnalytics (~> 3.12)
+  - Google/Core (2.0.3):
+    - GoogleInterchangeUtilities (~> 1.0)
+    - GoogleNetworkingUtilities (~> 1.0)
+    - GoogleSymbolUtilities (~> 1.0)
+    - GoogleUtilities (~> 1.1)
+  - GoogleAnalytics (3.14.0)
+  - GoogleInterchangeUtilities (1.2.0):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleMobileAds (7.6.0)
+  - GoogleNetworkingUtilities (1.2.0):
+    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleSymbolUtilities (1.1.0)
+  - GoogleUtilities (1.2.0):
+    - GoogleSymbolUtilities (~> 1.0)
+  - iRate (1.11.4)
+  - iVersion (1.11.4)
+  - SARate (1.0.3):
+    - iRate (~> 1.11.4)
+
+DEPENDENCIES:
+  - Google/AdMob
+  - Google/Analytics
+  - iVersion (~> 1.11)
+  - SARate
+
+SPEC CHECKSUMS:
+  Google: 61379f0072bc561a7e174d23a6cbe41bd6d8599c
+  GoogleAnalytics: 9be1afdb8deeac4bb5f13ca7f7d3b9db2a1f43dc
+  GoogleInterchangeUtilities: 427382e42d8a340038bec37c6fdfd316e14b5fa2
+  GoogleMobileAds: c2f4d3ef1be73d58ec25158addfde463636433a6
+  GoogleNetworkingUtilities: ec1e9911aca811eb18b7144394fee6168b607785
+  GoogleSymbolUtilities: eb3965ea12710569c7b80db198a39e39b18613f7
+  GoogleUtilities: 85f8ad6b251544286a97163133d042ec95f889c5
+  iRate: 599ed07c854e0695f3c605d1b2a64c67d912acb7
+  iVersion: 2b6ffe708672cb494ba3cab150a94800c2892e81
+  SARate: fdefa7a5d455041956b7a187103fd6e2bad85241
+
+COCOAPODS: 0.39.0

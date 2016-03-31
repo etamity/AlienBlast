@@ -34,6 +34,13 @@ class  UserInterFace: CCNode {
                 self.updateTouchesLCD(data);
             }
         }
+        staticData.events.listenTo(GameEvent.UPDATE_LEVEL.rawValue) { (info:Any?) in
+            if let data = info as? Int {
+                self.updateLevel(data);
+            }
+        }
+        
+        
     }
     
     func updateLives(value:Int){

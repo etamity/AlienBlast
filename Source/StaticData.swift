@@ -7,20 +7,23 @@
 //
 
 import Foundation
+import Darwin
 
 enum GameEvent: String {
     case UPDATE_TOUCHES
     case UPDATE_POINTS
     case UPDATE_LIVES
+    case UPDATE_LEVEL
 }
 
 
 class StaticData:NSObject{
     var ObjectTypes:[String];
-    
     var _touches: Int = 0;
     var _points: Int = 0;
     var _lives: Int = 0;
+    var _level : Int = 1;
+    
     var touches:Int{
         get {
             return _touches
@@ -37,8 +40,26 @@ class StaticData:NSObject{
         set (newValue){
             _points = newValue
             self.events.trigger(GameEvent.UPDATE_POINTS.rawValue,information: newValue)
+            let checkLevel:Int = self.checkLevelUpgrade(newValue)
+            if self.level <= checkLevel{
+                self.level = checkLevel
+            }
+        
         }
     }
+    
+    var level : Int {
+        get {
+            return _level
+        }
+        set(newValue){
+            if (_level !=  newValue){
+            _level = newValue
+            self.events.trigger(GameEvent.UPDATE_LEVEL.rawValue,information: newValue)
+            }
+        }
+    }
+    
     var gameState = 0;
     var bornRate:[Int];
     var lives :Int {
@@ -47,7 +68,7 @@ class StaticData:NSObject{
         }
         set (newValue){
             _lives = newValue
-            self.events.trigger(GameEvent.UPDATE_POINTS.rawValue,information: newValue)
+            self.events.trigger(GameEvent.UPDATE_LIVES.rawValue,information: newValue)
         }
     }
     
@@ -60,6 +81,16 @@ class StaticData:NSObject{
         
         return Static.instance
     }
+    
+    func checkLevelUpgrade(exp:Int)->Int{
+        let constA :Double = 8.7
+        let constB :Double = -40.0
+        let constC :Double = 111.0
+        let level : Double = max(floor( constA * log(Double(exp) + constC) + constB ), 1 )
+        
+        return Int(level)
+    }
+    
     override init () {
         ObjectTypes = ["INNCircle_Blue",           //0
             "INNCircle_Brown",          //1

@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>1</integer>
+	<integer>2</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -24,9 +24,9 @@
 	<key>fileVersion</key>
 	<integer>4</integer>
 	<key>gridspaceHeight</key>
-	<integer>64</integer>
+	<integer>38</integer>
 	<key>gridspaceWidth</key>
-	<integer>64</integer>
+	<integer>38</integer>
 	<key>guides</key>
 	<array/>
 	<key>joints</key>
@@ -40,7 +40,7 @@
 		<key>children</key>
 		<array/>
 		<key>customClass</key>
-		<string>Blaster</string>
+		<string>Finger</string>
 		<key>displayName</key>
 		<string>CCSprite</string>
 		<key>memberVarAssignmentName</key>
@@ -62,11 +62,11 @@
 			<key>collisionType</key>
 			<string></string>
 			<key>cornerRadius</key>
-			<real>19.1484375</real>
+			<real>19.265625</real>
 			<key>density</key>
 			<real>1</real>
 			<key>dynamic</key>
-			<true/>
+			<false/>
 			<key>elasticity</key>
 			<real>0.30000001192092896</real>
 			<key>friction</key>
@@ -74,8 +74,8 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>17.347686767578125</real>
-					<real>18.109375</real>
+					<real>17.69921875</real>
+					<real>17.2421875</real>
 				</array>
 			</array>
 			<key>polygons</key>
@@ -89,7 +89,7 @@
 				<key>type</key>
 				<string>StringSimple</string>
 				<key>value</key>
-				<string>INNCircle_Brown</string>
+				<string>INNTOUCHFinger</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -137,7 +137,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>ccbResources/Aliens/alienBeige_round.png</string>
+					<string>ccbResources/Glass elements/elementGlass005.png</string>
 				</array>
 			</dict>
 			<dict>

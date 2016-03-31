@@ -35,6 +35,6 @@
 	<key>publishToZip</key>
 	<false/>
 	<key>resourceAutoScaleFactor</key>
-	<integer>1</integer>
+	<integer>2</integer>
 </dict>
 </plist>

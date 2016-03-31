@@ -139,7 +139,7 @@
 				<key>displayName</key>
 				<string>CCLabelTTF</string>
 				<key>memberVarAssignmentName</key>
-				<string>_messageLabel</string>
+				<string>messageLabel</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -213,7 +213,7 @@ Go to Level2</string>
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Optima-ExtraBlack</string>
+						<string>Futura-CondensedExtraBold</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -339,6 +339,8 @@ Go to Level2</string>
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 				<key>seqExpanded</key>
 				<true/>
 			</dict>
@@ -413,8 +415,6 @@ Go to Level2</string>
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

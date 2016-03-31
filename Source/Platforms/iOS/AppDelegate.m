@@ -27,11 +27,31 @@
 
 #import "AppDelegate.h"
 #import "CCBuilderReader.h"
-
+#import "CommonBanner.h"
+#import <iVersion/iVersion.h>
+#import <iRate/iRate.h>
+#import <SARate/SARate.h>
+#import <Google/Analytics.h>
+@import GoogleMobileAds;
+@import iRate;
 @implementation AppController
+
++ (void)initialize
+{
+    //configure
+    [SARate sharedInstance].daysUntilPrompt = 5;
+    [SARate sharedInstance].usesUntilPrompt = 5;
+    [SARate sharedInstance].remindPeriod = 30;
+    [SARate sharedInstance].email = @"etamity@gmail.com";
+    [iVersion sharedInstance].appStoreID = 1098323034;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    
+
+    
     // Configure Cocos2d with the options set in SpriteBuilder
     NSString* configPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Published-iOS"]; // TODO: add support for Published-Android support
     configPath = [configPath stringByAppendingPathComponent:@"configCocos2d.plist"];
@@ -51,7 +71,31 @@
     
     // Do any extra configuration of Cocos2d here (the example line changes the pixel format for faster rendering, but with less colors)
     //[cocos2dSetup setObject:kEAGLColorFormatRGB565 forKey:CCConfigPixelFormat];
+    // Configure tracker from GoogleService-Info.plist.
+    NSError *configureError;
+    [[GGLContext sharedInstance] configureWithError:&configureError];
+    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
     
+    // Optional: configure GAI options.
+    GAI *gai = [GAI sharedInstance];
+    gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
+    gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
+   
+//    [CommonBanner regitserProvider:[CommonBannerProvideriAd class]
+//                withPriority:CommonBannerPriorityLow
+//                requestParams:nil];
+//    
+//    
+//    [CommonBanner regitserProvider:[CommonBannerProviderGAd class]
+//                withPriority:CommonBannerPriorityHigh
+//                requestParams:@{keyAdUnitID    : @"ca-app-pub-7660105848150286/2679623255",
+//                    keyTestDevices : @[]}];
+//    
+//    
+//    [CommonBanner setBannerPosition:CommonBannerPositionTop];
+//    [CCDirector sharedDirector].canDisplayAds = YES;
+//    [CommonBanner bannerControllerWithRootViewController:[CCDirector sharedDirector]];
+//    [CommonBanner startManaging];
     [self setupCocos2dWithOptions:cocos2dSetup];
     
     return YES;

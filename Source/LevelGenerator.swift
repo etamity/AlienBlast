@@ -13,6 +13,8 @@ class LevelGenerator: CCNode {
     var timeSpeed :Double = 1;
     var countOfTime:Int = 0;
     var hud:UserInterFace! = nil;
+    var finger:Finger! = nil
+    
     class var sharedInstance : LevelGenerator {
         struct Static {
             static let instance : LevelGenerator = LevelGenerator()
@@ -20,17 +22,30 @@ class LevelGenerator: CCNode {
         
         return Static.instance
     }
-    override init(){
-        super.init()
+
+    func didLoadFromCCB(){
         self.userInteractionEnabled = true;
         self.name = "LevelGenerator";
         self.initData();
         self.start();
+        finger = CCBReader.load("Objects/Finger") as! Finger
+        
+        let staticData = StaticData.sharedInstance
+        
+        staticData.events.listenTo(GameEvent.UPDATE_LEVEL.rawValue) { (info:Any?) in
+            if let data = info as? Int {
+                self.upgrageLevel(data)
+            }
+            
+        }
+        
     }
+    
+    
     func initData(){
         self.level = 0;
         self.speed = 3000;
-        self.countOfTime = 3;
+        self.countOfTime = 1;
         
     }
     
@@ -42,10 +57,57 @@ class LevelGenerator: CCNode {
         
     }
     
-    func nextLevel(){
-        self.speed += 1000;
-        self.level += 1;
+    func upgrageLevel(newlevel:Int){
+        let nextSpeed = Float(newlevel) * 10 + self.speed;
+        
+        if (nextSpeed < 9000){
+           self.speed = nextSpeed
+        }else{
+           self.speed = 9000;
+        }
+        
+  
+        self.level = newlevel;
+        self.countOfTime = newlevel;
+        self.timeSpeed = self.timeSpeed - Double(newlevel) * 0.01
+        self.goNextLevel()
 
+    }
+    
+    
+    override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+        
+        finger.position = touch.locationInNode(self)
+        self.addChild(finger)
+    }
+    
+    
+    override func touchMoved(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+          finger.position = touch.locationInNode(self)
+    }
+    
+    override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+         finger.removeFromParent()
+    }
+    
+    func goNextLevel(){
+        self.unscheduleAllSelectors()
+        StaticData.sharedInstance.points += 1 ;
+        let _animation:Animations = CCBReader.load("Animations") as! Animations;
+        _animation.setMessage("Goto Level \(level)");
+        
+        self.addChild(_animation);
+        
+        _animation.runAnimation();
+        
+        let blockAnimation :Animations = _animation;
+        
+        _animation.animationManager.setCompletedAnimationCallbackBlock { (sender:AnyObject!) in
+            blockAnimation.removeFromParent();
+            StaticData.sharedInstance.lives = 100;
+            self.start()
+        }
+        
     }
     
     
@@ -60,7 +122,7 @@ class LevelGenerator: CCNode {
             if (rate<bornRate) {
                 
             }else{
-                index=0;
+                index = 0;
             }
             
             

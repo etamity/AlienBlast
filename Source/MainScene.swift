@@ -1,5 +1,5 @@
 import Foundation
-
+import GoogleMobileAds;
 class MainScene: CCNode,CCPhysicsCollisionDelegate {
 
     var _physicsNode:CCPhysicsNode! = nil;
@@ -17,15 +17,21 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         _physicsNode.collisionDelegate = self;
         
         levelReady = false;
-        //self.loadLevel("LevelKing");
+
+    
+        CommonBanner.regitserProvider(CommonBannerProvideriAd.classForCoder(), withPriority: CommonBannerPriority.Low, requestParams: nil)
+        
+        CommonBanner.regitserProvider(CommonBannerProviderGAd.classForCoder(), withPriority: CommonBannerPriority.High,
+                                      requestParams: [keyAdUnitID: "ca-app-pub-7660105848150286/2679623255",
+                                                    keyTestDevices : []])
+        CCDirector.sharedDirector().canDisplayAds = true;
+        //CommonBanner.setBannerPosition(CommonBannerPosition.Top)
+        CommonBanner.bannerControllerWithRootViewController(CCDirector.sharedDirector())
+        CommonBanner.startManaging()
+        
+        
     }
 
-    func loadLevelFromValue(level:Int){
-        let generator:LevelGenerator = currnetLevel as! LevelGenerator;
-        generator.nextLevel();
-        self.paused = false;
-        levelReady = true;
-    }
     
     func ccPhysicsCollisionPostSolve(pair: CCPhysicsCollisionPair!, shape nodeA: CCNode!, bullet nodeB: CCNode!) -> Bool {
         if let nA = nodeA {
@@ -47,28 +53,22 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         return true
     }
     
-    func goNextLevel(){
-        self.paused = true;
-        
-        StaticData.sharedInstance.points += 1 ;
-        let _animation:Animations = CCBReader.load("Animations") as! Animations;
-        let generator:LevelGenerator = currnetLevel as! LevelGenerator;
-        var level: Int = generator.level;
-        _animation.setMessage("Goto Level \(level+1)");
-        
-        self.addChild(_animation);
-        
-        _animation.runAnimation();
-        
-        let mainSence : MainScene = self;
-        let blockAnimation :Animations = _animation;
-        
-        
-//        _animation.animationManager setCompletedAnimationCallbackBlock:^(id sender) {
-//        [blockAnimation removeFromParent];
-//        [mainSence loadLevelFromValue:(int)levelGenerator.level];
-//        [INNUserInterFace setLives:100];
-//        [[INNUserInterFace sharedScene] updateLevel:(int)levelGenerator.level];
-//        }];
+    func ccPhysicsCollisionPreSolve(pair: CCPhysicsCollisionPair!, finger nodeA: CCNode!, bullet nodeB: CCNode!) -> Bool {
+        if let nB = nodeB {
+            nB.removeFromParentAndCleanup(true)
+        }
+        return true
     }
+    
+    
+    func ccPhysicsCollisionPreSolve(pair: CCPhysicsCollisionPair!, shape nodeA: CCNode!, finger nodeB: CCNode!) -> Bool {
+        if let nA = nodeA {
+            let item : Blaster = nA as! Blaster
+            item.blast()
+        }
+        return true
+    }
+    
+    
+
 }

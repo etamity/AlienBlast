@@ -39,12 +39,17 @@ class Blaster: CCSprite {
         
     }
     
-    override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-        self.blast();
-        var touches : Int = StaticData.sharedInstance.touches;
-        touches -= 1 ;
-        StaticData.sharedInstance.touches = touches
-    }
+//    override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+//     
+//    }
+//    
+//    
+//    override func touchMoved(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+//        self.blast();
+//        var touches : Int = StaticData.sharedInstance.touches;
+//        touches -= 1 ;
+//        StaticData.sharedInstance.touches = touches
+//    }
     
     func setTypeOfCountsFromName(typeName:String){
         print("typeName",typeName)
@@ -119,7 +124,7 @@ class Blaster: CCSprite {
             StaticData.sharedInstance.points = points
             
 
-        let pnode:CCParticleSystem = CCBReader.load("BlastParticles") as! CCParticleSystem;
+        let pnode:CCParticleSystem = CCBReader.load("Effects/BlastParticles") as! CCParticleSystem;
             pnode.position = self.position;
             pnode.autoRemoveOnFinish = true;
             pnode.duration=0.5;
@@ -143,7 +148,7 @@ class Blaster: CCSprite {
                 var lives : Int = StaticData.sharedInstance.lives;
                 lives -= 1;
                 StaticData.sharedInstance.lives = lives
-                let pnode: CCParticleSystem = CCBReader.load("HurtParticles") as! CCParticleSystem;
+                let pnode: CCParticleSystem = CCBReader.load("Effects/HurtParticles") as! CCParticleSystem;
                 pnode.position = self.position;
                 pnode.autoRemoveOnFinish = true;
                 pnode.duration = 0.5;
