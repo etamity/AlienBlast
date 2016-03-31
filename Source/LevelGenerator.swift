@@ -51,6 +51,7 @@ class LevelGenerator: CCNode {
     
     func start(){
         self.schedule(#selector(shootElements), interval: self.timeSpeed)
+        
   
     }
     func increaseTouches(){
@@ -105,7 +106,7 @@ class LevelGenerator: CCNode {
     
     override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
          finger.removeFromParent()
-        self.schedule(#selector(increaseTouches), interval: 0.01)
+         self.reschedule(#selector(increaseTouches), interval: 0.01)
         
     }
     
@@ -115,7 +116,7 @@ class LevelGenerator: CCNode {
         let _animation:Animations = CCBReader.load("Animations") as! Animations;
         _animation.setMessage("Goto Level \(level)");
         
-        self.addChild(_animation);
+        self.parent.addChild(_animation);
         
         _animation.runAnimation();
         

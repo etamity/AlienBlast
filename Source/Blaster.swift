@@ -20,8 +20,9 @@ class Blaster: CCSprite {
     func didLoadFromCCB(){
         self._shootCount = 0;
         self._offsetDegree = 0 ;
-        self.userInteractionEnabled = true;
+        self.userInteractionEnabled = false;
         self.physicsBody.collisionType = "shape";
+        self.physicsBody.affectedByGravity = true
         followNode = CCNode()
         self.addChild(followNode);
 

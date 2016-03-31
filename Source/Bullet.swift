@@ -11,6 +11,7 @@ class Bullet: CCSprite {
 
     func didLoadFromCCB(){
         self.physicsBody.collisionType = "bullet";
+        self.userInteractionEnabled = false;
     }
     override func update(delta:CCTime){
         

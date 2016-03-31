@@ -13,9 +13,7 @@ class Finger: CCSprite {
     
     func didLoadFromCCB(){
         self.physicsBody.collisionType = "finger";
-        //fire.position = self.position;
-        //fire.autoRemoveOnFinish = false;
-        //fire.duration = 0.5;
+        self.userInteractionEnabled = false;
     }
     
     override func onExit() {

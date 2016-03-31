@@ -118,8 +118,8 @@
 									<integer>3</integer>
 									<key>value</key>
 									<array>
-										<real>441</real>
-										<real>336</real>
+										<real>165</real>
+										<real>528</real>
 									</array>
 								</dict>
 							</array>
@@ -164,8 +164,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>441</real>
-							<real>336</real>
+							<real>163</real>
+							<real>562</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -470,7 +470,7 @@ Go to Level2</string>
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>2</real>
+			<real>0.0</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
