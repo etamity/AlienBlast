@@ -51,6 +51,12 @@ class LevelGenerator: CCNode {
     
     func start(){
         self.schedule(#selector(shootElements), interval: self.timeSpeed)
+  
+    }
+    func increaseTouches(){
+        if (StaticData.sharedInstance.touches < 1000){
+            StaticData.sharedInstance.touches += 1 ;
+        }
     }
     
     func startLevelData(level:Int){
@@ -68,7 +74,14 @@ class LevelGenerator: CCNode {
         
   
         self.level = newlevel;
-        self.countOfTime = newlevel;
+        let newCountOfTime = 1 + Int(newlevel * (newlevel % 5))
+        if (newCountOfTime < 5){
+            self.countOfTime = newCountOfTime;
+        }else{
+            
+            self.countOfTime = 5 ;
+        }
+      
         self.timeSpeed = self.timeSpeed - Double(newlevel) * 0.01
         self.goNextLevel()
 
@@ -78,16 +91,22 @@ class LevelGenerator: CCNode {
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         
         finger.position = touch.locationInNode(self)
+        StaticData.sharedInstance.touches -= 1 ;
+        self.unschedule(#selector(increaseTouches))
         self.addChild(finger)
     }
     
     
     override func touchMoved(touch: CCTouch!, withEvent event: CCTouchEvent!) {
           finger.position = touch.locationInNode(self)
+          StaticData.sharedInstance.touches -= 1 ;
+        
     }
     
     override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
          finger.removeFromParent()
+        self.schedule(#selector(increaseTouches), interval: 0.01)
+        
     }
     
     func goNextLevel(){
@@ -104,7 +123,7 @@ class LevelGenerator: CCNode {
         
         _animation.animationManager.setCompletedAnimationCallbackBlock { (sender:AnyObject!) in
             blockAnimation.removeFromParent();
-            StaticData.sharedInstance.lives = 100;
+            //StaticData.sharedInstance.lives = 100;
             self.start()
         }
         
@@ -114,7 +133,7 @@ class LevelGenerator: CCNode {
     func shootElements(){
         let ElementsTypes = StaticData.sharedInstance.ObjectTypes;
         var rotationRadians:Float = 0;
-        
+    
         for _ in 0 ..< self.countOfTime {
             var index:Int = self.randomNumberBetween(0,max:ElementsTypes.count-1);
             let rate: Int = self.randomNumberBetween(0,max:100);

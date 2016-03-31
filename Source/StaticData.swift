@@ -29,8 +29,13 @@ class StaticData:NSObject{
             return _touches
         }
         set (newValue){
-            _touches = newValue
-            self.events.trigger(GameEvent.UPDATE_TOUCHES.rawValue,information: newValue)
+            if (newValue < 0){
+                _touches = 10
+            }else{
+                _touches = newValue
+            }
+         
+            self.events.trigger(GameEvent.UPDATE_TOUCHES.rawValue,information: _touches)
         }
     }
     var points:Int {
@@ -104,7 +109,8 @@ class StaticData:NSObject{
         ];
         bornRate = [80,70,60,30,10,7,5,5,3,1];
         _lives = 100;
-        _touches = 10;
+        
+        _touches = 1000;
         gameState = 0;    //game menu
     }
     

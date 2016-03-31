@@ -10,8 +10,7 @@ import Foundation
 class  UserInterFace: CCNode {
     weak var livesLCD:CCLabelTTF! = nil;
     weak var pointsLCD:CCLabelTTF! = nil;
-    weak var touchesLCD:CCLabelTTF! = nil;
-    weak var liveBar:CCNodeColor! = nil;
+    weak var touchesBar:CCNodeColor! = nil;
     weak var levelLCD:CCLabelTTF! = nil;
 
     
@@ -47,7 +46,7 @@ class  UserInterFace: CCNode {
         self.livesLCD.string = "\(value)"
     }
     func updateTouchesLCD(value:Int){
-        self.touchesLCD.string = "\(value)"
+        self.touchesBar.contentSize.width = 320 / 1000 * CGFloat(value)
     }
     func updateLevel(value:Int){
         self.levelLCD.string = "\(value)"
