@@ -46,6 +46,76 @@
 				<dict>
 					<key>0</key>
 					<dict>
+						<key>opacity</key>
+						<dict>
+							<key>keyframes</key>
+							<array>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>opacity</string>
+									<key>time</key>
+									<real>0.0</real>
+									<key>type</key>
+									<integer>10</integer>
+									<key>value</key>
+									<real>0.0</real>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>opacity</string>
+									<key>time</key>
+									<real>0.96666663885116577</real>
+									<key>type</key>
+									<integer>10</integer>
+									<key>value</key>
+									<real>1</real>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>opacity</string>
+									<key>time</key>
+									<real>2</real>
+									<key>type</key>
+									<integer>10</integer>
+									<key>value</key>
+									<real>1</real>
+								</dict>
+								<dict>
+									<key>easing</key>
+									<dict>
+										<key>type</key>
+										<integer>1</integer>
+									</dict>
+									<key>name</key>
+									<string>opacity</string>
+									<key>time</key>
+									<real>3</real>
+									<key>type</key>
+									<integer>10</integer>
+									<key>value</key>
+									<real>0.0</real>
+								</dict>
+							</array>
+							<key>name</key>
+							<string>opacity</string>
+							<key>type</key>
+							<integer>10</integer>
+						</dict>
 						<key>position</key>
 						<dict>
 							<key>keyframes</key>
@@ -77,13 +147,13 @@
 									<key>name</key>
 									<string>position</string>
 									<key>time</key>
-									<real>0.36666667461395264</real>
+									<real>0.5</real>
 									<key>type</key>
 									<integer>3</integer>
 									<key>value</key>
 									<array>
 										<real>163</real>
-										<real>329</real>
+										<real>440</real>
 									</array>
 								</dict>
 								<dict>
@@ -95,13 +165,13 @@
 									<key>name</key>
 									<string>position</string>
 									<key>time</key>
-									<real>1.6000000238418579</real>
+									<real>2.5</real>
 									<key>type</key>
 									<integer>3</integer>
 									<key>value</key>
 									<array>
 										<real>163</real>
-										<real>329</real>
+										<real>440</real>
 									</array>
 								</dict>
 								<dict>
@@ -113,7 +183,7 @@
 									<key>name</key>
 									<string>position</string>
 									<key>time</key>
-									<real>1.9666666984558105</real>
+									<real>3</real>
 									<key>type</key>
 									<integer>3</integer>
 									<key>value</key>
@@ -165,7 +235,7 @@
 						<key>value</key>
 						<array>
 							<real>163</real>
-							<real>562</real>
+							<real>440</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -233,6 +303,29 @@ Go to Level2</string>
 						<string>Check</string>
 						<key>value</key>
 						<false/>
+					</dict>
+					<dict>
+						<key>baseValue</key>
+						<real>1</real>
+						<key>name</key>
+						<string>opacity</string>
+						<key>type</key>
+						<string>Float</string>
+						<key>value</key>
+						<real>0.5</real>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>color</string>
+						<key>type</key>
+						<string>Color3</string>
+						<key>value</key>
+						<array>
+							<real>1</real>
+							<real>1</real>
+							<real>1</real>
+							<real>0.5</real>
+						</array>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -464,13 +557,13 @@ Go to Level2</string>
 			<key>chainedSequenceId</key>
 			<integer>0</integer>
 			<key>length</key>
-			<real>2</real>
+			<real>3</real>
 			<key>name</key>
 			<string>MessageTimeLine</string>
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.0</real>
+			<real>2.5</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

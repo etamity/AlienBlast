@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>2</integer>
+	<integer>1</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -24,9 +24,9 @@
 	<key>fileVersion</key>
 	<integer>4</integer>
 	<key>gridspaceHeight</key>
-	<integer>64</integer>
+	<integer>38</integer>
 	<key>gridspaceWidth</key>
-	<integer>64</integer>
+	<integer>38</integer>
 	<key>guides</key>
 	<array/>
 	<key>joints</key>
@@ -40,7 +40,30 @@
 		<key>children</key>
 		<array/>
 		<key>customClass</key>
-		<string>Bullet</string>
+		<string>Blaster</string>
+		<key>customProperties</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>bornRate</string>
+				<key>optimized</key>
+				<false/>
+				<key>type</key>
+				<integer>0</integer>
+				<key>value</key>
+				<string>5</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>hurtRate</string>
+				<key>optimized</key>
+				<false/>
+				<key>type</key>
+				<integer>0</integer>
+				<key>value</key>
+				<string>5</string>
+			</dict>
+		</array>
 		<key>displayName</key>
 		<string>CCSprite</string>
 		<key>memberVarAssignmentName</key>
@@ -54,15 +77,15 @@
 			<key>allowsRotation</key>
 			<true/>
 			<key>bodyShape</key>
-			<integer>1</integer>
+			<integer>0</integer>
 			<key>collisionCategories</key>
 			<array/>
 			<key>collisionMask</key>
 			<array/>
 			<key>collisionType</key>
-			<string>bullet</string>
+			<string></string>
 			<key>cornerRadius</key>
-			<real>6.56640625</real>
+			<real>0.0</real>
 			<key>density</key>
 			<real>1</real>
 			<key>dynamic</key>
@@ -74,12 +97,121 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>5.714874267578125</real>
-					<real>5.1953125</real>
+					<real>11.392824172973633</real>
+					<real>7.2888097763061523</real>
+				</array>
+				<array>
+					<real>11.613127708435059</real>
+					<real>13.484567642211914</real>
+				</array>
+				<array>
+					<real>8.262385368347168</real>
+					<real>18.42512321472168</real>
+				</array>
+				<array>
+					<real>13.657939910888672</real>
+					<real>20.849979400634766</real>
+				</array>
+				<array>
+					<real>17.488649368286133</real>
+					<real>25.647451400756836</real>
+				</array>
+				<array>
+					<real>21.410964965820312</real>
+					<real>20.910543441772461</real>
+				</array>
+				<array>
+					<real>26.747461318969727</real>
+					<real>18.453134536743164</real>
+				</array>
+				<array>
+					<real>23.514827728271484</real>
+					<real>13.326342582702637</real>
+				</array>
+				<array>
+					<real>23.759355545043945</real>
+					<real>7.5840620994567871</real>
+				</array>
+				<array>
+					<real>17.76573371887207</real>
+					<real>8.8884725570678711</real>
 				</array>
 			</array>
 			<key>polygons</key>
-			<array/>
+			<array>
+				<array>
+					<array>
+						<real>17.76573371887207</real>
+						<real>8.8884725570678711</real>
+					</array>
+					<array>
+						<real>23.759355545043945</real>
+						<real>7.5840620994567871</real>
+					</array>
+					<array>
+						<real>23.514827728271484</real>
+						<real>13.326342582702637</real>
+					</array>
+				</array>
+				<array>
+					<array>
+						<real>21.410964965820312</real>
+						<real>20.910543441772461</real>
+					</array>
+					<array>
+						<real>17.488649368286133</real>
+						<real>25.647451400756836</real>
+					</array>
+					<array>
+						<real>13.657939910888672</real>
+						<real>20.849979400634766</real>
+					</array>
+				</array>
+				<array>
+					<array>
+						<real>13.657939910888672</real>
+						<real>20.849979400634766</real>
+					</array>
+					<array>
+						<real>8.262385368347168</real>
+						<real>18.42512321472168</real>
+					</array>
+					<array>
+						<real>11.613127708435059</real>
+						<real>13.484567642211914</real>
+					</array>
+				</array>
+				<array>
+					<array>
+						<real>11.613127708435059</real>
+						<real>13.484567642211914</real>
+					</array>
+					<array>
+						<real>11.392824172973633</real>
+						<real>7.2888097763061523</real>
+					</array>
+					<array>
+						<real>17.76573371887207</real>
+						<real>8.8884725570678711</real>
+					</array>
+					<array>
+						<real>23.514827728271484</real>
+						<real>13.326342582702637</real>
+					</array>
+					<array>
+						<real>26.747461318969727</real>
+						<real>18.453134536743164</real>
+					</array>
+					<array>
+						<real>21.410964965820312</real>
+						<real>20.910543441772461</real>
+					</array>
+					<array>
+						<real>13.657939910888672</real>
+						<real>20.849979400634766</real>
+					</array>
+				</array>
+			</array>
 		</dict>
 		<key>properties</key>
 		<array>
@@ -89,7 +221,7 @@
 				<key>type</key>
 				<string>StringSimple</string>
 				<key>value</key>
-				<string></string>
+				<string>Star</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -137,7 +269,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>ccbResources/GameAsset/ballBlue.png</string>
+					<string>ccbResources/GameAsset/starGold.png</string>
 				</array>
 			</dict>
 			<dict>
@@ -173,8 +305,6 @@
 				<array/>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

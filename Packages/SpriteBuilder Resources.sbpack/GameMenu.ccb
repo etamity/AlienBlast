@@ -128,8 +128,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>160</real>
-							<real>390.00006103515625</real>
+							<real>159.13792419433594</real>
+							<real>508.103515625</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -342,7 +342,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>67</real>
+									<real>58</real>
 									<real>20</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -508,7 +508,7 @@
 								<key>type</key>
 								<string>FontTTF</string>
 								<key>value</key>
-								<string>Helvetica</string>
+								<string>Futura-CondensedExtraBold</string>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -668,7 +668,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>67</real>
+									<real>58</real>
 									<real>80</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -834,7 +834,7 @@
 								<key>type</key>
 								<string>FontTTF</string>
 								<key>value</key>
-								<string>Helvetica</string>
+								<string>Futura-CondensedExtraBold</string>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -994,7 +994,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>67</real>
+									<real>58</real>
 									<real>140</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -1160,7 +1160,7 @@
 								<key>type</key>
 								<string>FontTTF</string>
 								<key>value</key>
-								<string>Helvetica</string>
+								<string>Futura-CondensedExtraBold</string>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -1437,8 +1437,6 @@
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
@@ -1494,7 +1492,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>2.4666666984558105</real>
+			<real>0.13333334028720856</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

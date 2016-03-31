@@ -216,7 +216,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
+							<real>1</real>
 							<real>475.32559204101562</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -230,7 +230,7 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>320</real>
+							<real>318</real>
 							<real>10</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -328,8 +328,6 @@
 						<real>0.20000000298023224</real>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1146,7 +1144,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Level</string>
+							<string>Wave</string>
 							<false/>
 						</array>
 					</dict>
@@ -1523,7 +1521,7 @@
 						<key>value</key>
 						<array>
 							<real>0.0</real>
-							<real>90</real>
+							<real>34</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -2794,12 +2792,12 @@
 							<real>-80.5390625</real>
 						</array>
 						<array>
-							<real>-19.01171875</real>
-							<real>575.98046875</real>
+							<real>-14.30078125</real>
+							<real>641.3203125</real>
 						</array>
 						<array>
-							<real>0.375</real>
-							<real>576.26953125</real>
+							<real>-0.296875</real>
+							<real>642.96484375</real>
 						</array>
 						<array>
 							<real>0.613311767578125</real>
@@ -2810,12 +2808,12 @@
 							<real>-64.33984375</real>
 						</array>
 						<array>
-							<real>321.01171875</real>
-							<real>576.45703125</real>
+							<real>320.35546875</real>
+							<real>658.6875</real>
 						</array>
 						<array>
-							<real>337.65625</real>
-							<real>576.81640625</real>
+							<real>331.5625</real>
+							<real>661.5078125</real>
 						</array>
 						<array>
 							<real>337.65625</real>
@@ -2830,12 +2828,12 @@
 								<real>-77.66796875</real>
 							</array>
 							<array>
-								<real>337.65625</real>
-								<real>576.81640625</real>
+								<real>331.5625</real>
+								<real>661.5078125</real>
 							</array>
 							<array>
-								<real>321.01171875</real>
-								<real>576.45703125</real>
+								<real>320.35546875</real>
+								<real>658.6875</real>
 							</array>
 							<array>
 								<real>320.1484375</real>
@@ -2866,12 +2864,12 @@
 								<real>-65.07421875</real>
 							</array>
 							<array>
-								<real>0.375</real>
-								<real>576.26953125</real>
+								<real>-0.296875</real>
+								<real>642.96484375</real>
 							</array>
 							<array>
-								<real>-19.01171875</real>
-								<real>575.98046875</real>
+								<real>-14.30078125</real>
+								<real>641.3203125</real>
 							</array>
 							<array>
 								<real>-17.359375</real>

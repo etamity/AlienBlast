@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>2</integer>
+	<integer>14</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -24,9 +24,9 @@
 	<key>fileVersion</key>
 	<integer>4</integer>
 	<key>gridspaceHeight</key>
-	<integer>64</integer>
+	<integer>38</integer>
 	<key>gridspaceWidth</key>
-	<integer>64</integer>
+	<integer>38</integer>
 	<key>guides</key>
 	<array/>
 	<key>joints</key>
@@ -40,7 +40,30 @@
 		<key>children</key>
 		<array/>
 		<key>customClass</key>
-		<string>Bullet</string>
+		<string>Blaster</string>
+		<key>customProperties</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>bornRate</string>
+				<key>optimized</key>
+				<false/>
+				<key>type</key>
+				<integer>0</integer>
+				<key>value</key>
+				<string>80</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>hurtRate</string>
+				<key>optimized</key>
+				<false/>
+				<key>type</key>
+				<integer>0</integer>
+				<key>value</key>
+				<string>-1</string>
+			</dict>
+		</array>
 		<key>displayName</key>
 		<string>CCSprite</string>
 		<key>memberVarAssignmentName</key>
@@ -60,9 +83,9 @@
 			<key>collisionMask</key>
 			<array/>
 			<key>collisionType</key>
-			<string>bullet</string>
+			<string></string>
 			<key>cornerRadius</key>
-			<real>6.56640625</real>
+			<real>19.371265411376953</real>
 			<key>density</key>
 			<real>1</real>
 			<key>dynamic</key>
@@ -74,8 +97,8 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>5.714874267578125</real>
-					<real>5.1953125</real>
+					<real>17.539093017578125</real>
+					<real>17.691421508789062</real>
 				</array>
 			</array>
 			<key>polygons</key>
@@ -89,7 +112,7 @@
 				<key>type</key>
 				<string>StringSimple</string>
 				<key>value</key>
-				<string></string>
+				<string>Circle_Blue</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -137,7 +160,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>ccbResources/GameAsset/ballBlue.png</string>
+					<string>ccbResources/Aliens/alienBlue_round.png</string>
 				</array>
 			</dict>
 			<dict>

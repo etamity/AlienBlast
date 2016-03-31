@@ -10,6 +10,7 @@
 		5B12102A197484DD004C1E1D /* AlienBlastSwiftActivity.java in Sources */ = {isa = PBXBuildFile; fileRef = 5B12101B19748413004C1E1D /* AlienBlastSwiftActivity.java */; };
 		5B121030197484FA004C1E1D /* AlienBlastSwiftActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* AlienBlastSwiftActivity.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
+		733CA24BDE5E751AB2A1FB4F /* Pods_AlienBlastSwift_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86342E9F907D5F2547911297 /* Pods_AlienBlastSwift_iOS.framework */; };
 		7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A046D7519E84C36004C4763 /* MainScene.swift */; };
 		7A10CE5619F32FB0001673C3 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A046D7519E84C36004C4763 /* MainScene.swift */; };
 		7A40360419DDEE84007B6E8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A40360319DDEE84007B6E8F /* main.m */; };
@@ -95,7 +96,6 @@
 		BC5399DB1A44DCC90063F482 /* JavaFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D61A44DCC90063F482 /* JavaFoundation.framework */; };
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
 		BCD00A8C1A44E83400DA5AD0 /* CoreJava.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D41A44DCC90063F482 /* CoreJava.framework */; };
-		BD18FF575412CD40A39C6000 /* Pods_AlienBlastSwift_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AEFE96A0DA31C7EA06E615 /* Pods_AlienBlastSwift_iOS.framework */; };
 		C0803F791CAC547700A5AA42 /* Finger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0803F781CAC547700A5AA42 /* Finger.swift */; };
 		C0803FA31CAC74E800A5AA42 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0803FA21CAC74E800A5AA42 /* GoogleService-Info.plist */; };
 		C0803FAA1CAC81F100A5AA42 /* CommonBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = C0803FA81CAC81F100A5AA42 /* CommonBanner.m */; };
@@ -170,6 +170,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D4243D63EBCDC4E30FA2C1B /* Pods-AlienBlastSwift iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlienBlastSwift iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlienBlastSwift iOS/Pods-AlienBlastSwift iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
 		5B12100B19748281004C1E1D /* BridgeKitV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BridgeKitV3.framework; path = System/Library/Frameworks/BridgeKitV3.framework; sourceTree = SDKROOT; };
 		5B12100F197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
@@ -183,7 +184,7 @@
 		5B121033197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Android/Info.plist; sourceTree = "<group>"; };
 		5B121034197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/iOS/Info.plist; sourceTree = "<group>"; };
 		5BA4619E1974C88900785744 /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = AndroidManifest.xml; path = Platforms/Android/AndroidManifest.xml; sourceTree = "<group>"; };
-		74DEF7B0752889A138CA03C7 /* Pods-AlienBlastSwift iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlienBlastSwift iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlienBlastSwift iOS/Pods-AlienBlastSwift iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		5FA4C86C72412DA8C6914FFD /* Pods-AlienBlastSwift iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlienBlastSwift iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlienBlastSwift iOS/Pods-AlienBlastSwift iOS.release.xcconfig"; sourceTree = "<group>"; };
 		7A046D7519E84C36004C4763 /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScene.swift; path = Source/MainScene.swift; sourceTree = "<group>"; };
 		7A4035FF19DDEE84007B6E8F /* AlienBlastSwift Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AlienBlastSwift Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A40360219DDEE84007B6E8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Mac/Info.plist; sourceTree = "<group>"; };
@@ -198,8 +199,8 @@
 		7AFCD5DD19E9BDC200BCCCDA /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Source/Bridging-Header.h"; sourceTree = "<group>"; };
 		7BF6AF9F1A425F9800FFF9BA /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../../../../Library/SBAndroid/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		8392007918EE8E3300B6C429 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		86342E9F907D5F2547911297 /* Pods_AlienBlastSwift_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlienBlastSwift_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		927F61BF196C771E000F43EF /* AlienBlastSwift Android.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AlienBlastSwift Android.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5431152C3832E1FBA6A3522 /* Pods-AlienBlastSwift iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlienBlastSwift iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlienBlastSwift iOS/Pods-AlienBlastSwift iOS.release.xcconfig"; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -254,7 +255,6 @@
 		D4F5476D1CABE6FE00ADE204 /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animations.swift; path = Source/Animations.swift; sourceTree = "<group>"; };
 		D4F5476E1CABE6FE00ADE204 /* Blaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Blaster.swift; path = Source/Blaster.swift; sourceTree = "<group>"; };
 		D4F5477E1CAC1CC700ADE204 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
-		F6AEFE96A0DA31C7EA06E615 /* Pods_AlienBlastSwift_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlienBlastSwift_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,7 +317,7 @@
 				B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */,
 				B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */,
 				B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */,
-				BD18FF575412CD40A39C6000 /* Pods_AlienBlastSwift_iOS.framework in Frameworks */,
+				733CA24BDE5E751AB2A1FB4F /* Pods_AlienBlastSwift_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,15 +485,6 @@
 			name = libs;
 			sourceTree = "<group>";
 		};
-		B155B2755E85C9C50B43A5B0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				74DEF7B0752889A138CA03C7 /* Pods-AlienBlastSwift iOS.debug.xcconfig */,
-				A5431152C3832E1FBA6A3522 /* Pods-AlienBlastSwift iOS.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,7 +533,7 @@
 				B77F1CCF17B978D8009739AE /* Supporting Files */,
 				B77F1B3017B978D7009739AE /* Frameworks */,
 				B77F1B2F17B978D7009739AE /* Products */,
-				B155B2755E85C9C50B43A5B0 /* Pods */,
+				CBA3145765F375F9F5221066 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -585,7 +576,7 @@
 				B77F1B3D17B978D7009739AE /* Foundation.framework */,
 				B77F1B3F17B978D7009739AE /* CoreGraphics.framework */,
 				B77F1B4117B978D7009739AE /* CoreText.framework */,
-				F6AEFE96A0DA31C7EA06E615 /* Pods_AlienBlastSwift_iOS.framework */,
+				86342E9F907D5F2547911297 /* Pods_AlienBlastSwift_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -622,6 +613,15 @@
 				C0803FA91CAC81F100A5AA42 /* CommonBanner.h */,
 			);
 			name = Ads;
+			sourceTree = "<group>";
+		};
+		CBA3145765F375F9F5221066 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D4243D63EBCDC4E30FA2C1B /* Pods-AlienBlastSwift iOS.debug.xcconfig */,
+				5FA4C86C72412DA8C6914FFD /* Pods-AlienBlastSwift iOS.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D4F5475F1CABE6D100ADE204 /* Objects */ = {
@@ -696,16 +696,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B77F1CDE17B978D8009739AE /* Build configuration list for PBXNativeTarget "AlienBlastSwift iOS" */;
 			buildPhases = (
-				987DB9604B26A416A84EC369 /* Check Pods Manifest.lock */,
+				92FC1F8B8BE0733614BD8996 /* Check Pods Manifest.lock */,
 				D2E0167A18D782EC00927430 /* Run Script */,
 				C0803F821CAC6B7D00A5AA42 /* ShellScript */,
 				B77F1B2A17B978D7009739AE /* Sources */,
 				B77F1B2B17B978D7009739AE /* Frameworks */,
 				D352B47A19EC5D8A00829775 /* Compile Metal Shaders */,
 				B77F1B2C17B978D7009739AE /* Resources */,
-				08629757DDC6F187486C5B55 /* Embed Pods Frameworks */,
-				BD5D0DEF9A653E4F74EE7BB4 /* Copy Pods Resources */,
 				C0803F831CAC6B9600A5AA42 /* ShellScript */,
+				1C35AA704FF5CF2F8A18BD1A /* Embed Pods Frameworks */,
+				15B9E55431604E4B7A1ECC39 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -731,6 +731,7 @@
 						CreatedOnToolsVersion = 6.0.1;
 					};
 					B77F1B2D17B978D7009739AE = {
+						DevelopmentTeam = ZC8BPATUV5;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -869,7 +870,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08629757DDC6F187486C5B55 /* Embed Pods Frameworks */ = {
+		15B9E55431604E4B7A1ECC39 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlienBlastSwift iOS/Pods-AlienBlastSwift iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1C35AA704FF5CF2F8A18BD1A /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -898,7 +914,7 @@
 			shellPath = /bin/sh;
 			shellScript = "osascript -e 'tell application \"System Events\"' -e 'set ProcessList to name of every process' -e 'if \"SpriteBuilder\" is in ProcessList then' -e 'tell application \"SpriteBuilder\" to publish' -e 'end if' -e 'end tell'";
 		};
-		987DB9604B26A416A84EC369 /* Check Pods Manifest.lock */ = {
+		92FC1F8B8BE0733614BD8996 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -911,21 +927,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		BD5D0DEF9A653E4F74EE7BB4 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlienBlastSwift iOS/Pods-AlienBlastSwift iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C0803F821CAC6B7D00A5AA42 /* ShellScript */ = {
@@ -1380,7 +1381,7 @@
 		};
 		B77F1CDF17B978D8009739AE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74DEF7B0752889A138CA03C7 /* Pods-AlienBlastSwift iOS.debug.xcconfig */;
+			baseConfigurationReference = 3D4243D63EBCDC4E30FA2C1B /* Pods-AlienBlastSwift iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -1388,6 +1389,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
@@ -1419,7 +1421,7 @@
 		};
 		B77F1CE017B978D8009739AE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5431152C3832E1FBA6A3522 /* Pods-AlienBlastSwift iOS.release.xcconfig */;
+			baseConfigurationReference = 5FA4C86C72412DA8C6914FFD /* Pods-AlienBlastSwift iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -1427,6 +1429,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				HEADER_SEARCH_PATHS = (

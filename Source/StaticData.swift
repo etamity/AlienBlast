@@ -16,6 +16,16 @@ enum GameEvent: String {
     case UPDATE_LEVEL
 }
 
+enum GameSoundType:String{
+    case GAME_MENU = "Sounds/Sad Town.wav"
+    case INGAME_MENU = "Sounds/Retro Comedy.wav"
+    case GAME_PLAYING = "Sounds/Cheerful Annoyance.wav"
+    case GAME_PLAYING1 = "Sounds/Night at the Beach.wav"
+    case BLAST = "Sounds/rockHit2.wav"
+    case HIT = "Sounds/zap1.wav"
+    case WAVEUP = "Sounds/powerUp6.wav"
+}
+
 
 class StaticData:NSObject{
     var ObjectTypes:[String];
@@ -29,7 +39,7 @@ class StaticData:NSObject{
             return _touches
         }
         set (newValue){
-            if (newValue < 0){
+            if (newValue < 10){
                 _touches = 10
             }else{
                 _touches = newValue
@@ -97,17 +107,25 @@ class StaticData:NSObject{
     }
     
     override init () {
-        ObjectTypes = ["INNCircle_Blue",           //0
-            "INNCircle_Brown",          //1
-            "INNCircle_Green",          //2
-            "INNCircle_Yellow",         //4
-            "INNCircle_Sun",            //5
-            "INNClock",                 //6
-            "INNStar",                  //7
-            "INNUFO_Blue",              //8
-            "INNCircle_Pink",            //9
+        ObjectTypes = [
+            BlasterType.Circle_Blue.rawValue,
+            BlasterType.Circle_Brown.rawValue,
+            BlasterType.Circle_Green.rawValue,
+            BlasterType.Circle_Yellow.rawValue,
+            BlasterType.Circle_Sun.rawValue,
+            BlasterType.Clock.rawValue,
+            BlasterType.Heart.rawValue,
+            BlasterType.Star.rawValue,
+            BlasterType.UFO_Blue.rawValue,
+            BlasterType.Circle_Pink.rawValue
         ];
-        bornRate = [80,70,60,30,10,7,5,5,3,1];
+        bornRate = []
+        weak var node:Blaster! = nil;
+        for objectName in ObjectTypes {
+            node = CCBReader.load("Objects/\(objectName)") as! Blaster
+            bornRate.append(node.bornRate)
+        }
+
         _lives = 100;
         
         _touches = 1000;

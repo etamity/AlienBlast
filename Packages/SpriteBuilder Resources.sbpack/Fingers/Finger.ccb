@@ -24,9 +24,9 @@
 	<key>fileVersion</key>
 	<integer>4</integer>
 	<key>gridspaceHeight</key>
-	<integer>64</integer>
+	<integer>38</integer>
 	<key>gridspaceWidth</key>
-	<integer>64</integer>
+	<integer>38</integer>
 	<key>guides</key>
 	<array/>
 	<key>joints</key>
@@ -40,7 +40,7 @@
 		<key>children</key>
 		<array/>
 		<key>customClass</key>
-		<string>Bullet</string>
+		<string>Finger</string>
 		<key>displayName</key>
 		<string>CCSprite</string>
 		<key>memberVarAssignmentName</key>
@@ -60,13 +60,13 @@
 			<key>collisionMask</key>
 			<array/>
 			<key>collisionType</key>
-			<string>bullet</string>
+			<string></string>
 			<key>cornerRadius</key>
-			<real>6.56640625</real>
+			<real>19.265625</real>
 			<key>density</key>
 			<real>1</real>
 			<key>dynamic</key>
-			<true/>
+			<false/>
 			<key>elasticity</key>
 			<real>0.30000001192092896</real>
 			<key>friction</key>
@@ -74,8 +74,8 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>5.714874267578125</real>
-					<real>5.1953125</real>
+					<real>17.69921875</real>
+					<real>17.2421875</real>
 				</array>
 			</array>
 			<key>polygons</key>
@@ -89,7 +89,7 @@
 				<key>type</key>
 				<string>StringSimple</string>
 				<key>value</key>
-				<string></string>
+				<string>INNTOUCHFinger</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -137,7 +137,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>ccbResources/GameAsset/ballBlue.png</string>
+					<string>ccbResources/Glass elements/elementGlass005.png</string>
 				</array>
 			</dict>
 			<dict>

@@ -29,7 +29,9 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         CommonBanner.bannerControllerWithRootViewController(CCDirector.sharedDirector())
         CommonBanner.startManaging()
         
-        
+        OALSimpleAudio.sharedInstance().preloadEffect(GameSoundType.BLAST.rawValue)
+        OALSimpleAudio.sharedInstance().preloadEffect(GameSoundType.HIT.rawValue)
+        OALSimpleAudio.sharedInstance().preloadEffect(GameSoundType.WAVEUP.rawValue)
     }
 
     
@@ -43,7 +45,7 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         }
 
    
-        return true
+        return false
     }
     
     func ccPhysicsCollisionPreSolve(pair: CCPhysicsCollisionPair!, wall nodeA: CCNode!, bullet nodeB: CCNode!) -> Bool {
@@ -52,21 +54,32 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         }
         return true
     }
+    func ccPhysicsCollisionPreSolve(pair: CCPhysicsCollisionPair!, bullet nodeA: CCNode!, bullet nodeB: CCNode!) -> Bool {
+
+        return false
+    }
     
-    func ccPhysicsCollisionPreSolve(pair: CCPhysicsCollisionPair!, finger nodeA: CCNode!, bullet nodeB: CCNode!) -> Bool {
-        if let nB = nodeB {
-            nB.removeFromParentAndCleanup(true)
-        }
-        return true
+    func ccPhysicsCollisionPreSolve(pair: CCPhysicsCollisionPair!, bullet nodeA: CCNode!, finger nodeB: CCNode!) -> Bool {
+        
+        return false
     }
     
     
     func ccPhysicsCollisionPreSolve(pair: CCPhysicsCollisionPair!, shape nodeA: CCNode!, finger nodeB: CCNode!) -> Bool {
+
         if let nA = nodeA {
-            let item : Blaster = nA as! Blaster
-            item.blast()
+            
+            let targetName = nA.name;
+            let item : Blaster = nA as! Blaster;
+            item.blast();
+            
+            if let nB = nodeB{
+                let finger = nB as! Finger
+                finger.blastTarget(targetName)
+            }
+            
         }
-        return true
+        return false
     }
     
     

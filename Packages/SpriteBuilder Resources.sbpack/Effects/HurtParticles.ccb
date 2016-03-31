@@ -213,15 +213,15 @@
 				<array>
 					<array>
 						<real>1</real>
-						<real>0.10764694213867188</real>
 						<real>0.0</real>
+						<real>0.0090085035189986229</real>
 						<real>1</real>
 					</array>
 					<array>
+						<real>0.4133964478969574</real>
 						<real>0.0</real>
-						<real>0.0</real>
-						<real>0.0</real>
-						<real>0.0</real>
+						<real>0.0037240833044052124</real>
+						<real>1</real>
 					</array>
 				</array>
 			</dict>
@@ -233,10 +233,10 @@
 				<key>value</key>
 				<array>
 					<array>
+						<real>1</real>
+						<real>0.42670312523841858</real>
 						<real>0.0</real>
-						<real>0.0</real>
-						<real>0.0</real>
-						<real>255</real>
+						<real>1</real>
 					</array>
 					<array>
 						<real>0.0</real>
