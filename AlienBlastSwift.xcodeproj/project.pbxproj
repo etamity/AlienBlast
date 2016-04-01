@@ -99,6 +99,7 @@
 		C0803F791CAC547700A5AA42 /* Finger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0803F781CAC547700A5AA42 /* Finger.swift */; };
 		C0803FA31CAC74E800A5AA42 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0803FA21CAC74E800A5AA42 /* GoogleService-Info.plist */; };
 		C0803FAA1CAC81F100A5AA42 /* CommonBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = C0803FA81CAC81F100A5AA42 /* CommonBanner.m */; };
+		C0803FB81CADEE7700A5AA42 /* Power.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0803FB71CADEE7700A5AA42 /* Power.swift */; };
 		D4F547671CABE6EC00ADE204 /* GameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F547621CABE6EC00ADE204 /* GameMenu.swift */; };
 		D4F547681CABE6EC00ADE204 /* INGameMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F547631CABE6EC00ADE204 /* INGameMenu.swift */; };
 		D4F547691CABE6EC00ADE204 /* StaticData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F547641CABE6EC00ADE204 /* StaticData.swift */; };
@@ -245,6 +246,7 @@
 		C0803FA21CAC74E800A5AA42 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C0803FA81CAC81F100A5AA42 /* CommonBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonBanner.m; path = Source/Ads/CommonBanner.m; sourceTree = "<group>"; };
 		C0803FA91CAC81F100A5AA42 /* CommonBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonBanner.h; path = Source/Ads/CommonBanner.h; sourceTree = "<group>"; };
+		C0803FB71CADEE7700A5AA42 /* Power.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Power.swift; path = Source/Power.swift; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 		D4F547621CABE6EC00ADE204 /* GameMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameMenu.swift; path = Source/GameMenu.swift; sourceTree = "<group>"; };
 		D4F547631CABE6EC00ADE204 /* INGameMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = INGameMenu.swift; path = Source/INGameMenu.swift; sourceTree = "<group>"; };
@@ -631,6 +633,7 @@
 				D4F5476D1CABE6FE00ADE204 /* Animations.swift */,
 				D4F5476E1CABE6FE00ADE204 /* Blaster.swift */,
 				C0803F781CAC547700A5AA42 /* Finger.swift */,
+				C0803FB71CADEE7700A5AA42 /* Power.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1023,6 +1026,7 @@
 				B73789871807631A0076A88C /* main.m in Sources */,
 				D4F5476A1CABE6EC00ADE204 /* UserInterFace.swift in Sources */,
 				D4F547701CABE6FE00ADE204 /* Animations.swift in Sources */,
+				C0803FB81CADEE7700A5AA42 /* Power.swift in Sources */,
 				D4F547691CABE6EC00ADE204 /* StaticData.swift in Sources */,
 				C0803F791CAC547700A5AA42 /* Finger.swift in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,

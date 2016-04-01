@@ -14,18 +14,47 @@ enum GameEvent: String {
     case UPDATE_POINTS
     case UPDATE_LIVES
     case UPDATE_LEVEL
+    case UPDATE_FINGER
+    case GAME_OVER
 }
 
 enum GameSoundType:String{
-    case GAME_MENU = "Sounds/Sad Town.wav"
-    case INGAME_MENU = "Sounds/Retro Comedy.wav"
-    case GAME_PLAYING = "Sounds/Cheerful Annoyance.wav"
-    case GAME_PLAYING1 = "Sounds/Night at the Beach.wav"
-    case BLAST = "Sounds/rockHit2.wav"
-    case HIT = "Sounds/zap1.wav"
-    case WAVEUP = "Sounds/powerUp6.wav"
+    case GAME_MENU = "Sad Town.wav"
+    case INGAME_MENU = "Retro Comedy.wav"
+    case GAME_PLAYING = "Cheerful Annoyance.wav"
+    case GAME_PLAYING1 = "Night at the Beach.wav"
+    case BLAST = "switch23.wav"
+    case HIT = "zap1.wav"
+    case WAVEUP = "phaserUp6.wav"
 }
 
+enum FingerType: String {
+    case Default = "DefaultFinger"
+    case Sentry = "SentryFinger"
+    case Shield = "ShieldFinger"
+}
+
+
+enum BlasterType: String {
+    case Circle_Blue
+    case Circle_Brown
+    case Circle_Green
+    case Circle_Yellow
+    case Circle_Sun
+    case Clock
+    case Heart
+    case Star
+    case UFO_Blue
+    case Circle_Pink
+    case Finger_Sentry
+    case Finger_Shield
+}
+
+enum EffectType: String {
+    case BLAST = "BlastParticles"
+    case HURT = "HurtParticles"
+    case TRANSFORM = "TransformParticles"
+}
 
 class StaticData:NSObject{
     var ObjectTypes:[String];
@@ -84,6 +113,10 @@ class StaticData:NSObject{
         set (newValue){
             _lives = newValue
             self.events.trigger(GameEvent.UPDATE_LIVES.rawValue,information: newValue)
+            
+            if (_lives <= 0){
+             self.events.trigger(GameEvent.GAME_OVER.rawValue)
+            }
         }
     }
     
@@ -117,12 +150,14 @@ class StaticData:NSObject{
             BlasterType.Heart.rawValue,
             BlasterType.Star.rawValue,
             BlasterType.UFO_Blue.rawValue,
-            BlasterType.Circle_Pink.rawValue
+            BlasterType.Circle_Pink.rawValue,
+            BlasterType.Finger_Shield.rawValue,
+            BlasterType.Finger_Sentry.rawValue
         ];
         bornRate = []
         weak var node:Blaster! = nil;
         for objectName in ObjectTypes {
-            node = CCBReader.load("Objects/\(objectName)") as! Blaster
+            node = CCBReader.load(StaticData.getObjectFile(objectName)) as! Blaster
             bornRate.append(node.bornRate)
         }
 
@@ -132,4 +167,18 @@ class StaticData:NSObject{
         gameState = 0;    //game menu
     }
     
+    class func getSoundFile(name:String)->String{
+        return "Sounds/\(name)"
+    }
+    
+    class func getEffectFile(name:String)->String{
+        return "Effects/\(name)"
+    }
+    
+    class func getFingerFile(name:String)->String{
+        return "Fingers/\(name)"
+    }
+    class func getObjectFile(name:String)->String{
+        return "Objects/\(name)"
+    }
 }

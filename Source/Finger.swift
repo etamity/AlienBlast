@@ -11,17 +11,13 @@ class Finger: CCSprite {
     var followNode:CCNode! = nil;
     var shootCount:Int = 0;
     var offsetDegree : Int = 0;
-    //weak var fire:CCParticleSystem! = nil
-    
+    var duringTime : Double = 1.0;
+    var type : FingerType! = FingerType.Default
+ 
     func didLoadFromCCB(){
         self.physicsBody.collisionType = "finger";
         self.userInteractionEnabled = false;
-//        if self.children != nil {
-//            for child in self.children as! [CCNode]{
-//                child.userInteractionEnabled = false
-//            }
-//            
-//        }
+
         self.physicsBody.sensor = false
         self.shootCount = 0;
         self.offsetDegree = 0 ;
@@ -81,16 +77,18 @@ class Finger: CCSprite {
         }
         self.shootCount = count;
         self.offsetDegree = offset;
-        print("typeName",typeName,shootCount,offsetDegree)
+
     }
     func blastTarget(targetName:String){
-        var rotationRadians: Float = 0.0;
-        var dircount :Int = 0;
+
+        
         self.setTypeOfCountsFromName(targetName);
         if self.shootCount == 0 {
             return;
         }
         
+        var rotationRadians: Float = 0.0;
+        var dircount :Int = 0;
         if (self.shootCount>0){
             dircount = 360 / self.shootCount;
             weak var bullet: CCNode! = nil;
@@ -109,9 +107,14 @@ class Finger: CCSprite {
                 
             }
         }
+        
+        
+
         //[self follow:self];
     }
     
+    
+
     override func onExit() {
         super.onExit()
         //fire.autoRemoveOnFinish = true;

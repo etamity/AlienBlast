@@ -46,7 +46,7 @@ class GameMenu : CCNode{
     }
     func didLoadFromCCB(){
          gameRoot = self.parent
-         OALSimpleAudio.sharedInstance().playBg(GameSoundType.GAME_MENU.rawValue, loop:true)
+         OALSimpleAudio.sharedInstance().playBg(StaticData.getSoundFile(GameSoundType.GAME_MENU.rawValue), loop:true)
         
     }
 }

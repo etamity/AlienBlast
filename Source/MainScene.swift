@@ -29,9 +29,9 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         CommonBanner.bannerControllerWithRootViewController(CCDirector.sharedDirector())
         CommonBanner.startManaging()
         
-        OALSimpleAudio.sharedInstance().preloadEffect(GameSoundType.BLAST.rawValue)
-        OALSimpleAudio.sharedInstance().preloadEffect(GameSoundType.HIT.rawValue)
-        OALSimpleAudio.sharedInstance().preloadEffect(GameSoundType.WAVEUP.rawValue)
+        OALSimpleAudio.sharedInstance().preloadEffect(StaticData.getSoundFile(GameSoundType.BLAST.rawValue))
+        OALSimpleAudio.sharedInstance().preloadEffect(StaticData.getSoundFile(GameSoundType.HIT.rawValue))
+        OALSimpleAudio.sharedInstance().preloadEffect(StaticData.getSoundFile(GameSoundType.WAVEUP.rawValue))
     }
 
     
@@ -67,21 +67,30 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
     
     func ccPhysicsCollisionPreSolve(pair: CCPhysicsCollisionPair!, shape nodeA: CCNode!, finger nodeB: CCNode!) -> Bool {
 
-        if let nA = nodeA {
+        if let nA = nodeA as? Blaster{
             
             let targetName = nA.name;
-            let item : Blaster = nA as! Blaster;
-            item.blast();
+            if let nB = nodeB as? Finger{
+                nB.blastTarget(targetName)
             
-            if let nB = nodeB{
-                let finger = nB as! Finger
-                finger.blastTarget(targetName)
             }
+            
+            nA.blast();
             
         }
         return false
     }
     
     
-
+    func ccPhysicsCollisionPreSolve(pair: CCPhysicsCollisionPair!, power nodeA: CCNode!, finger nodeB: CCNode!) -> Bool {
+        
+        if let nA = nodeA as? Power{
+            StaticData.sharedInstance.events.trigger(GameEvent.UPDATE_FINGER.rawValue, information: nA.subType)
+            
+            nA.blast();
+            
+        }
+        return false
+    }
+    
 }

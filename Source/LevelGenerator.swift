@@ -28,18 +28,47 @@ class LevelGenerator: CCNode {
         self.name = "LevelGenerator";
         self.initData();
         self.start();
-        finger = CCBReader.load("Fingers/SentryFinger") as! Finger
+        finger = CCBReader.load(StaticData.getFingerFile(FingerType.Default.rawValue)) as! Finger
         self.addChild(finger)
         let staticData = StaticData.sharedInstance
         
         staticData.events.listenTo(GameEvent.UPDATE_LEVEL.rawValue) { (info:Any?) in
             if let data = info as? Int {
+                if (self.paused == false){
                 self.upgrageLevel(data)
+                }
             }
             
         }
-        OALSimpleAudio.sharedInstance().playBg(GameSoundType.GAME_PLAYING.rawValue, loop:true)
         
+        staticData.events.listenTo(GameEvent.UPDATE_FINGER.rawValue) { (info:Any?) in
+            if let data = info as? String {
+                let type : FingerType = FingerType(rawValue: data)!
+                    print(type,self.finger.type)
+                if (self.finger.type != type)
+                {
+                    self.transformFinger(type)
+                    self.schedule(#selector(self.onFinishedFinger), interval: self.finger.duringTime)
+                    
+                }
+            }
+        }
+        
+        
+        staticData.events.listenTo(GameEvent.GAME_OVER.rawValue) {
+            
+            self.stop()
+            
+            let gameover : INGameMenu = CCBReader.load("InGameMenu") as! INGameMenu
+            gameover.updateLevelLCD(self.level)
+            gameover.updateScoreLCD(staticData.points)
+            self.addChild(gameover)
+            
+        }
+        
+        
+        OALSimpleAudio.sharedInstance().playBg(StaticData.getSoundFile(GameSoundType.GAME_PLAYING.rawValue), loop:true)
+        self.schedule(#selector(increaseTouches), interval: 0.01)
     }
     
     
@@ -52,11 +81,19 @@ class LevelGenerator: CCNode {
     
     func start(){
         self.schedule(#selector(shootElements), interval: self.timeSpeed)
-        self.schedule(#selector(increaseTouches), interval: 0.01)
         if (self.level > 10){
-            OALSimpleAudio.sharedInstance().playBg(GameSoundType.GAME_PLAYING1.rawValue, loop:true)
+            OALSimpleAudio.sharedInstance().playBg(StaticData.getSoundFile(GameSoundType.GAME_PLAYING1.rawValue), loop:true)
         }
     }
+    
+    
+    func stop(){
+        self.unscheduleAllSelectors()
+        self.stopAllActions()
+        self.paused = true;
+        
+    }
+    
     func increaseTouches(){
         
         if (StaticData.sharedInstance.touches < 1000 && self.touched == false){
@@ -69,7 +106,7 @@ class LevelGenerator: CCNode {
     }
     
     func upgrageLevel(newlevel:Int){
-        let nextSpeed = Float(newlevel) * 100 + self.speed;
+        let nextSpeed = Float(newlevel) * 200 + self.speed;
         
         if (nextSpeed < 9000){
            self.speed = nextSpeed
@@ -87,16 +124,36 @@ class LevelGenerator: CCNode {
             self.countOfTime = 5 ;
         }
       
-        self.timeSpeed = self.timeSpeed - 0.01;
+        self.timeSpeed = self.timeSpeed - 0.1;
         if (self.timeSpeed <= 0.1 )
         {
-            self.timeSpeed = 0.1;
+            self.timeSpeed = 0.9;
         }
         self.goNextLevel()
 
     }
     
-    
+    func transformFinger(type:FingerType){
+        let fingerFile : String = StaticData.getFingerFile(type.rawValue)
+        let effectFile : String = StaticData.getEffectFile(EffectType.TRANSFORM.rawValue)
+        let fingerNode : Finger = CCBReader.load(fingerFile) as! Finger
+        let effectNode : CCParticleSystem = CCBReader.load(effectFile) as! CCParticleSystem
+        effectNode.autoRemoveOnFinish = true
+        let pt = finger.position;
+        finger.removeFromParent()
+        finger = fingerNode
+        finger.position = pt
+        finger.type = type;
+        effectNode.position = pt
+        self.addChild(finger)
+        self.addChild(effectNode)
+        
+    }
+    func onFinishedFinger(){
+        self.transformFinger(FingerType.Default)
+        self.unschedule(#selector(self.onFinishedFinger))
+        
+    }
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         //finger.physicsBody.sensor = false
         finger.position = touch.locationInNode(self)
@@ -120,7 +177,7 @@ class LevelGenerator: CCNode {
     }
     
     func goNextLevel(){
-        self.unscheduleAllSelectors()
+        self.unschedule(#selector(shootElements))
         StaticData.sharedInstance.points += 1 ;
         let _animation:Animations = CCBReader.load("Animations") as! Animations;
         _animation.setMessage("Wave \(level)");
@@ -130,7 +187,7 @@ class LevelGenerator: CCNode {
         _animation.runAnimation();
         
         let blockAnimation :Animations = _animation;
-        OALSimpleAudio.sharedInstance().playEffect(GameSoundType.WAVEUP.rawValue)
+        OALSimpleAudio.sharedInstance().playEffect(StaticData.getSoundFile(GameSoundType.WAVEUP.rawValue))
         _animation.animationManager.setCompletedAnimationCallbackBlock { (sender:AnyObject!) in
             blockAnimation.removeFromParent();
             //StaticData.sharedInstance.lives = 100;
@@ -157,7 +214,7 @@ class LevelGenerator: CCNode {
             
             
             let type:String = ElementsTypes[index];
-            let blaster : Blaster = CCBReader.load("Objects/\(type)") as! Blaster;
+            let blaster : Blaster = CCBReader.load(StaticData.getObjectFile(type)) as! Blaster;
             
             blaster.name = type;
             

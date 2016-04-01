@@ -8,26 +8,13 @@
 
 import Foundation
 
-enum BlasterType: String {
-    case Circle_Blue
-    case Circle_Brown
-    case Circle_Green
-    case Circle_Yellow
-    case Circle_Sun
-    case Clock
-    case Heart
-    case Star
-    case UFO_Blue
-    case Circle_Pink
-}
-
 class Blaster: CCSprite {
     
     var bornRate :Int = 100;
     var hurtRate :Int = 0;
     var healthRate :Int = 1;
     var type: BlasterType! = nil;
-    
+
     func didLoadFromCCB(){
     
         self.userInteractionEnabled = false;
@@ -56,12 +43,12 @@ class Blaster: CCSprite {
         touches += self.hurtRate;
         StaticData.sharedInstance.touches = touches
         
-        let pnode:CCParticleSystem = CCBReader.load("Effects/BlastParticles") as! CCParticleSystem;
+        let pnode:CCParticleSystem = CCBReader.load(StaticData.getEffectFile(EffectType.BLAST.rawValue)) as! CCParticleSystem;
             pnode.position = self.position;
             pnode.autoRemoveOnFinish = true;
             pnode.duration=0.5;
             self.parent.addChild(pnode);
-            OALSimpleAudio.sharedInstance().playEffect(GameSoundType.BLAST.rawValue)
+            OALSimpleAudio.sharedInstance().playEffect(StaticData.getSoundFile(GameSoundType.BLAST.rawValue))
             self.removeFromParentAndCleanup(true);
             
 
@@ -81,10 +68,10 @@ class Blaster: CCSprite {
                     var lives : Int = StaticData.sharedInstance.lives;
                     lives += self.hurtRate;
                     StaticData.sharedInstance.lives = lives
-                    OALSimpleAudio.sharedInstance().playEffect(GameSoundType.HIT.rawValue)
+                    OALSimpleAudio.sharedInstance().playEffect(StaticData.getSoundFile(GameSoundType.HIT.rawValue))
                 }
                 
-                let pnode: CCParticleSystem = CCBReader.load("Effects/HurtParticles") as! CCParticleSystem;
+                let pnode: CCParticleSystem = CCBReader.load(StaticData.getEffectFile(EffectType.HURT.rawValue)) as! CCParticleSystem;
                 pnode.position = self.position;
                 pnode.autoRemoveOnFinish = true;
                 pnode.duration = 0.5;

@@ -17,7 +17,7 @@ class INGameMenu: CCNode{
     weak var closeButton:CCButton!;
 
     func didLoadFromCCB(){
-        OALSimpleAudio.sharedInstance().playBg(GameSoundType.INGAME_MENU.rawValue, loop:true)
+        OALSimpleAudio.sharedInstance().playBg(StaticData.getSoundFile(GameSoundType.INGAME_MENU.rawValue), loop:true)
     }
     
     func updateScoreLCD(value:Int){
