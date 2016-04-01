@@ -24,9 +24,9 @@
 	<key>fileVersion</key>
 	<integer>4</integer>
 	<key>gridspaceHeight</key>
-	<integer>38</integer>
+	<integer>64</integer>
 	<key>gridspaceWidth</key>
-	<integer>38</integer>
+	<integer>64</integer>
 	<key>guides</key>
 	<array/>
 	<key>joints</key>
@@ -40,7 +40,7 @@
 		<key>children</key>
 		<array/>
 		<key>customClass</key>
-		<string>Blaster</string>
+		<string>Bullet</string>
 		<key>displayName</key>
 		<string>CCSprite</string>
 		<key>memberVarAssignmentName</key>
@@ -60,9 +60,9 @@
 			<key>collisionMask</key>
 			<array/>
 			<key>collisionType</key>
-			<string></string>
+			<string>bullet</string>
 			<key>cornerRadius</key>
-			<real>24</real>
+			<real>6.56640625</real>
 			<key>density</key>
 			<real>1</real>
 			<key>dynamic</key>
@@ -74,8 +74,8 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>24</real>
-					<real>24</real>
+					<real>5.714874267578125</real>
+					<real>5.1953125</real>
 				</array>
 			</array>
 			<key>polygons</key>
@@ -89,7 +89,7 @@
 				<key>type</key>
 				<string>StringSimple</string>
 				<key>value</key>
-				<string>INNUFO_Blue</string>
+				<string></string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -137,7 +137,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>ccbResources/GameAsset/ufoBlue.png</string>
+					<string>ccbResources/GameAsset/laserBlue01.png</string>
 				</array>
 			</dict>
 			<dict>
@@ -173,8 +173,6 @@
 				<array/>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

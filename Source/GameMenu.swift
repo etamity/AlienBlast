@@ -9,43 +9,22 @@
 import Foundation
 
 class GameMenu : CCNode{
-    var gameRoot:CCNode! = nil;
-    func gameButtonPresssed(sender:AnyObject!){
-        gameRoot.removeAllChildren()
-        self.loadLevel("LevelKing")
-
-    }
-
-    func loadLevel(levelName:String){
-        
-        let newLevelName:String = "Levels/\(levelName)";
-        
-        let currnetLevel = CCBReader.load(newLevelName);
-        
-        
-        gameRoot.addChild(currnetLevel);
-        
-        let frame:CCDrawNode = CCDrawNode();
-        if var verts : [CGPoint] = [] {
-            verts.append(ccp(currnetLevel.position.x, currnetLevel.position.y))
-            verts.append(ccp(currnetLevel.contentSize.width, currnetLevel.position.y))
-            verts.append(ccp(currnetLevel.contentSize.width, currnetLevel.contentSize.height))
-            verts.append(ccp(currnetLevel.position.x, currnetLevel.contentSize.height))
-            frame.drawPolyWithVerts(verts, count: 4, fillColor: nil, borderWidth: 2.0, borderColor: CCColor.grayColor())
+    weak var startGameBtn:CCButton! = nil
+    weak var continueBtn:CCButton! = nil
+    weak var topScoreBtn:CCButton! = nil
+    func gameButtonPresssed(sender:CCButton!){
+        if (sender == startGameBtn)
+        {
+            StaticData.sharedInstance.events.trigger(GameEvent.GAME_START.rawValue)
+            
+        }else if (sender == continueBtn){
+           StaticData.sharedInstance.events.trigger(GameEvent.GAME_CONTINUE.rawValue)
+        }else if (sender == topScoreBtn){
+            StaticData.sharedInstance.events.trigger(GameEvent.GAME_TOPSCORE.rawValue)
         }
-
-        
-        gameRoot.addChild(frame);
-
-        
-        
-        let userInterface :UserInterFace = CCBReader.load("UserInterface") as! UserInterFace
-        userInterface.position = CGPointMake(0, 0);
-        gameRoot.addChild(userInterface)
-        
     }
+
     func didLoadFromCCB(){
-         gameRoot = self.parent
          OALSimpleAudio.sharedInstance().playBg(StaticData.getSoundFile(GameSoundType.GAME_MENU.rawValue), loop:true)
         
     }

@@ -16,6 +16,12 @@ enum GameEvent: String {
     case UPDATE_LEVEL
     case UPDATE_FINGER
     case GAME_OVER
+    case GAME_PAUSE
+    case GAME_START
+    case GAME_CONTINUE
+    case GAME_MAINMENU
+    case GAME_TOPSCORE
+    case GAME_RESUME
 }
 
 enum GameSoundType:String{
@@ -32,6 +38,7 @@ enum FingerType: String {
     case Default = "DefaultFinger"
     case Sentry = "SentryFinger"
     case Shield = "ShieldFinger"
+    case Blackhole = "BlackholeFinger"
 }
 
 
@@ -48,6 +55,7 @@ enum BlasterType: String {
     case Circle_Pink
     case Finger_Sentry
     case Finger_Shield
+    case Finger_Blackhole
 }
 
 enum EffectType: String {
@@ -68,8 +76,8 @@ class StaticData:NSObject{
             return _touches
         }
         set (newValue){
-            if (newValue < 10){
-                _touches = 10
+            if (newValue < 50){
+                _touches = 50
             }else{
                 _touches = newValue
             }
@@ -104,7 +112,6 @@ class StaticData:NSObject{
         }
     }
     
-    var gameState = 0;
     var bornRate:[Int];
     var lives :Int {
         get {
@@ -112,11 +119,14 @@ class StaticData:NSObject{
         }
         set (newValue){
             _lives = newValue
-            self.events.trigger(GameEvent.UPDATE_LIVES.rawValue,information: newValue)
-            
             if (_lives <= 0){
-             self.events.trigger(GameEvent.GAME_OVER.rawValue)
+                _lives = 0
+                self.events.trigger(GameEvent.GAME_OVER.rawValue)
+                
             }
+            
+            self.events.trigger(GameEvent.UPDATE_LIVES.rawValue,information: _lives)
+            
         }
     }
     
@@ -139,6 +149,9 @@ class StaticData:NSObject{
         return Int(level)
     }
     
+    
+
+    
     override init () {
         ObjectTypes = [
             BlasterType.Circle_Blue.rawValue,
@@ -152,7 +165,8 @@ class StaticData:NSObject{
             BlasterType.UFO_Blue.rawValue,
             BlasterType.Circle_Pink.rawValue,
             BlasterType.Finger_Shield.rawValue,
-            BlasterType.Finger_Sentry.rawValue
+            BlasterType.Finger_Sentry.rawValue,
+            BlasterType.Finger_Blackhole.rawValue
         ];
         bornRate = []
         weak var node:Blaster! = nil;
@@ -164,8 +178,16 @@ class StaticData:NSObject{
         _lives = 100;
         
         _touches = 1000;
-        gameState = 0;    //game menu
     }
+    
+    func reset(){
+        self.level = 1
+        self.lives = 100
+        self.points = 0
+        self.touches = 1000
+    }
+    
+    
     
     class func getSoundFile(name:String)->String{
         return "Sounds/\(name)"

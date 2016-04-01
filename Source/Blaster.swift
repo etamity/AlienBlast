@@ -48,7 +48,6 @@ class Blaster: CCSprite {
             pnode.autoRemoveOnFinish = true;
             pnode.duration=0.5;
             self.parent.addChild(pnode);
-            OALSimpleAudio.sharedInstance().playEffect(StaticData.getSoundFile(GameSoundType.BLAST.rawValue))
             self.removeFromParentAndCleanup(true);
             
 
@@ -56,7 +55,7 @@ class Blaster: CCSprite {
     
     override func update(delta: CCTime) {
         
-        let rect : CGRect = CGRectMake(self.parent.position.x, self.parent.position.y,self.parent.contentSize.width, self.parent.contentSize.height + 200);
+        let rect : CGRect = CGRectMake(self.parent.position.x, self.parent.position.y,self.parent.contentSize.width, CCDirector.sharedDirector().viewSize().height + 200);
         
         let inRect : Bool = CGRectContainsPoint(rect,self.position);
         

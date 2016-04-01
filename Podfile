@@ -8,6 +8,7 @@ pod 'Google/AdMob'
 pod 'SARate'
 pod 'Google/Analytics'
 pod 'iVersion', '~> 1.11'
+
 end
 
 

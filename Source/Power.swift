@@ -13,4 +13,5 @@ class Power: Blaster {
         super.didLoadFromCCB()
         self.physicsBody.collisionType = "power";
     }
+    
 }

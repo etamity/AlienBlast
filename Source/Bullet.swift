@@ -16,7 +16,7 @@ class Bullet: CCSprite {
     }
     override func update(delta:CCTime){
         
-        let rect: CGRect = CGRectMake(self.parent.position.x, self.parent.position.y,self.parent.contentSize.width, self.parent.contentSize.height);
+        let rect: CGRect = CGRectMake(self.parent.position.x, self.parent.position.y,CCDirector.sharedDirector().viewSize().width, CCDirector.sharedDirector().viewSize().height);
         
         let inRect:Bool = CGRectContainsPoint(rect,self.position);
         

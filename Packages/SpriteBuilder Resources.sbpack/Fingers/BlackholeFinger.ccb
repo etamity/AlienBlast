@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>6</integer>
+	<integer>5</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -290,7 +290,7 @@
 						<string>FloatVar</string>
 						<key>value</key>
 						<array>
-							<real>150</real>
+							<real>40</real>
 							<real>0.0</real>
 						</array>
 					</dict>
@@ -301,283 +301,7 @@
 						<string>FloatVar</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>texture</string>
-						<key>type</key>
-						<string>Texture</string>
-						<key>value</key>
-						<string>ccbResources/ccbParticleFire.png</string>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>UUID</key>
-				<integer>5</integer>
-				<key>baseClass</key>
-				<string>CCParticleSystem</string>
-				<key>children</key>
-				<array/>
-				<key>customClass</key>
-				<string></string>
-				<key>displayName</key>
-				<string>CCParticleSystem</string>
-				<key>memberVarAssignmentName</key>
-				<string></string>
-				<key>memberVarAssignmentType</key>
-				<integer>1</integer>
-				<key>properties</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>name</string>
-						<key>type</key>
-						<string>StringSimple</string>
-						<key>value</key>
-						<string></string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>position</string>
-						<key>type</key>
-						<string>Position</string>
-						<key>value</key>
-						<array>
-							<real>17.5</real>
-							<real>18.5</real>
-							<integer>0</integer>
-							<integer>0</integer>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>anchorPoint</string>
-						<key>type</key>
-						<string>Point</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>scale</string>
-						<key>type</key>
-						<string>ScaleLock</string>
-						<key>value</key>
-						<array>
-							<real>1</real>
-							<real>1</real>
-							<true/>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>emitterMode</string>
-						<key>type</key>
-						<string>IntegerLabeled</string>
-						<key>value</key>
-						<integer>1</integer>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>posVar</string>
-						<key>type</key>
-						<string>Point</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>emissionRate</string>
-						<key>type</key>
-						<string>Float</string>
-						<key>value</key>
-						<real>500</real>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>duration</string>
-						<key>type</key>
-						<string>Float</string>
-						<key>value</key>
-						<real>-1</real>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>totalParticles</string>
-						<key>type</key>
-						<string>Integer</string>
-						<key>value</key>
-						<integer>500</integer>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>life</string>
-						<key>type</key>
-						<string>FloatVar</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<real>1</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>startSize</string>
-						<key>type</key>
-						<string>FloatVar</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>endSize</string>
-						<key>type</key>
-						<string>FloatVar</string>
-						<key>value</key>
-						<array>
-							<real>10</real>
-							<real>10</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>startSpin</string>
-						<key>type</key>
-						<string>FloatVar</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>endSpin</string>
-						<key>type</key>
-						<string>FloatVar</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>angle</string>
-						<key>type</key>
-						<string>FloatVar</string>
-						<key>value</key>
-						<array>
-							<real>180</real>
-							<real>0.0</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>startColor</string>
-						<key>type</key>
-						<string>Color4FVar</string>
-						<key>value</key>
-						<array>
-							<array>
-								<real>0.44519934058189392</real>
-								<real>0.51948422193527222</real>
-								<real>0.93907523155212402</real>
-								<real>1</real>
-							</array>
-							<array>
-								<real>0.0</real>
-								<real>0.0</real>
-								<real>0.0</real>
-								<real>0.81999999284744263</real>
-							</array>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>endColor</string>
-						<key>type</key>
-						<string>Color4FVar</string>
-						<key>value</key>
-						<array>
-							<array>
-								<real>0.096151947975158691</real>
-								<real>1</real>
-								<real>0.8437466025352478</real>
-								<real>0.81999999284744263</real>
-							</array>
-							<array>
-								<real>0.0</real>
-								<real>0.0</real>
-								<real>0.0</real>
-								<real>0.0</real>
-							</array>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>blendFunc</string>
-						<key>type</key>
-						<string>Blendmode</string>
-						<key>value</key>
-						<array>
-							<integer>1</integer>
-							<integer>1</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>resetOnVisibilityToggle</string>
-						<key>type</key>
-						<string>Check</string>
-						<key>value</key>
-						<true/>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>startRadius</string>
-						<key>type</key>
-						<string>FloatVar</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>endRadius</string>
-						<key>type</key>
-						<string>FloatVar</string>
-						<key>value</key>
-						<array>
-							<real>150</real>
-							<real>0.0</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>rotatePerSecond</string>
-						<key>type</key>
-						<string>FloatVar</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
+							<real>720</real>
 							<real>0.0</real>
 						</array>
 					</dict>
@@ -604,7 +328,7 @@
 				<key>type</key>
 				<integer>1</integer>
 				<key>value</key>
-				<string>2.000000</string>
+				<string>5.000000</string>
 			</dict>
 		</array>
 		<key>displayName</key>
@@ -620,7 +344,7 @@
 			<key>allowsRotation</key>
 			<true/>
 			<key>bodyShape</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>collisionCategories</key>
 			<array/>
 			<key>collisionMask</key>
@@ -628,7 +352,7 @@
 			<key>collisionType</key>
 			<string>finger</string>
 			<key>cornerRadius</key>
-			<real>0.0</real>
+			<real>55.140625</real>
 			<key>density</key>
 			<real>1</real>
 			<key>dynamic</key>
@@ -640,111 +364,12 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>-134.1484375</real>
-					<real>12.0859375</real>
-				</array>
-				<array>
-					<real>-134.3203125</real>
-					<real>24.45703125</real>
-				</array>
-				<array>
-					<real>-2.55078125</real>
-					<real>24.5</real>
-				</array>
-				<array>
-					<real>16.3046875</real>
-					<real>38.6640625</real>
-				</array>
-				<array>
-					<real>37.02734375</real>
-					<real>27.32421875</real>
-				</array>
-				<array>
-					<real>164.33203125</real>
-					<real>25.984375</real>
-				</array>
-				<array>
-					<real>165.21484375</real>
-					<real>12.73828125</real>
-				</array>
-				<array>
-					<real>38.0703125</real>
-					<real>12.16015625</real>
-				</array>
-				<array>
-					<real>18.65234375</real>
-					<real>-2</real>
-				</array>
-				<array>
-					<real>-4.63671875</real>
-					<real>11.03515625</real>
+					<real>17.69921875</real>
+					<real>17.2421875</real>
 				</array>
 			</array>
 			<key>polygons</key>
-			<array>
-				<array>
-					<array>
-						<real>-2.55078125</real>
-						<real>24.5</real>
-					</array>
-					<array>
-						<real>-134.3203125</real>
-						<real>24.45703125</real>
-					</array>
-					<array>
-						<real>-134.1484375</real>
-						<real>12.0859375</real>
-					</array>
-					<array>
-						<real>-4.63671875</real>
-						<real>11.03515625</real>
-					</array>
-				</array>
-				<array>
-					<array>
-						<real>38.0703125</real>
-						<real>12.16015625</real>
-					</array>
-					<array>
-						<real>165.21484375</real>
-						<real>12.73828125</real>
-					</array>
-					<array>
-						<real>164.33203125</real>
-						<real>25.984375</real>
-					</array>
-					<array>
-						<real>37.02734375</real>
-						<real>27.32421875</real>
-					</array>
-				</array>
-				<array>
-					<array>
-						<real>37.02734375</real>
-						<real>27.32421875</real>
-					</array>
-					<array>
-						<real>16.3046875</real>
-						<real>38.6640625</real>
-					</array>
-					<array>
-						<real>-2.55078125</real>
-						<real>24.5</real>
-					</array>
-					<array>
-						<real>-4.63671875</real>
-						<real>11.03515625</real>
-					</array>
-					<array>
-						<real>18.65234375</real>
-						<real>-2</real>
-					</array>
-					<array>
-						<real>38.0703125</real>
-						<real>12.16015625</real>
-					</array>
-				</array>
-			</array>
+			<array/>
 		</dict>
 		<key>properties</key>
 		<array>
@@ -838,8 +463,6 @@
 				<array/>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

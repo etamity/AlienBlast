@@ -27,7 +27,7 @@ class LevelGenerator: CCNode {
         self.userInteractionEnabled = true;
         self.name = "LevelGenerator";
         self.initData();
-        self.start();
+      
         finger = CCBReader.load(StaticData.getFingerFile(FingerType.Default.rawValue)) as! Finger
         self.addChild(finger)
         let staticData = StaticData.sharedInstance
@@ -35,7 +35,8 @@ class LevelGenerator: CCNode {
         staticData.events.listenTo(GameEvent.UPDATE_LEVEL.rawValue) { (info:Any?) in
             if let data = info as? Int {
                 if (self.paused == false){
-                self.upgrageLevel(data)
+                    self.upgrageLevel(data)
+                    self.goNextLevel()
                 }
             }
             
@@ -56,42 +57,81 @@ class LevelGenerator: CCNode {
         
         
         staticData.events.listenTo(GameEvent.GAME_OVER.rawValue) {
-            
             self.stop()
-            
+        
             let gameover : INGameMenu = CCBReader.load("InGameMenu") as! INGameMenu
             gameover.updateLevelLCD(self.level)
             gameover.updateScoreLCD(staticData.points)
+            gameover.position.x = (CCDirector.sharedDirector().viewSize().width - 320) / 2
             self.addChild(gameover)
+         
+        }
+        
+        staticData.events.listenTo(GameEvent.GAME_PAUSE.rawValue) {
+            
+            self.stop()
+            
+            let gamepause : INGameMenu = CCBReader.load("InGameMenu") as! INGameMenu
+            gamepause.updateLevelLCD(self.level)
+            gamepause.updateScoreLCD(staticData.points)
+            gamepause.position.x = (CCDirector.sharedDirector().viewSize().width - 320) / 2
+            gamepause.gamePauseView()
+            self.addChild(gamepause)
+         
+        }
+        
+        staticData.events.listenTo(GameEvent.GAME_RESUME.rawValue) {
+            self.resume();
+            self.changeBgMusic(0)
             
         }
+    
         
         
         OALSimpleAudio.sharedInstance().playBg(StaticData.getSoundFile(GameSoundType.GAME_PLAYING.rawValue), loop:true)
         self.schedule(#selector(increaseTouches), interval: 0.01)
+        
+        self.upgrageLevel(staticData.level)
+        self.start()
     }
     
     
     func initData(){
-        self.level = 0;
+        self.level = 1;
         self.speed = 3000;
         self.countOfTime = 1;
         
     }
     
     func start(){
+        self.paused = false
         self.schedule(#selector(shootElements), interval: self.timeSpeed)
-        if (self.level > 10){
-            OALSimpleAudio.sharedInstance().playBg(StaticData.getSoundFile(GameSoundType.GAME_PLAYING1.rawValue), loop:true)
+        if (self.level % 10 == 0){
+            self.changeBgMusic(self.level % 2)
         }
+
+    }
+    
+    func changeBgMusic(index:Int){
+        switch index {
+        case 0:
+            OALSimpleAudio.sharedInstance().playBg(StaticData.getSoundFile(GameSoundType.GAME_PLAYING1.rawValue), loop:true)
+        default:
+            OALSimpleAudio.sharedInstance().playBg(StaticData.getSoundFile(GameSoundType.GAME_PLAYING.rawValue), loop:true)
+        }
+   
+ 
     }
     
     
     func stop(){
-        self.unscheduleAllSelectors()
-        self.stopAllActions()
-        self.paused = true;
-        
+        self.paused = true
+        CCDirector.sharedDirector().pause()
+    }
+
+    func resume(){
+        self.paused = false
+        CCDirector.sharedDirector().resume()
     }
     
     func increaseTouches(){
@@ -101,9 +141,6 @@ class LevelGenerator: CCNode {
         }
     }
     
-    func startLevelData(level:Int){
-        
-    }
     
     func upgrageLevel(newlevel:Int){
         let nextSpeed = Float(newlevel) * 200 + self.speed;
@@ -129,7 +166,7 @@ class LevelGenerator: CCNode {
         {
             self.timeSpeed = 0.9;
         }
-        self.goNextLevel()
+   
 
     }
     
@@ -155,28 +192,52 @@ class LevelGenerator: CCNode {
         
     }
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+        if (self.paused == true)
+        {
+            return
+        }
         //finger.physicsBody.sensor = false
         finger.position = touch.locationInNode(self)
-        StaticData.sharedInstance.touches -= 1 ;
         self.touched = true;
   
     }
     
     
     override func touchMoved(touch: CCTouch!, withEvent event: CCTouchEvent!) {
-          finger.position = touch.locationInNode(self)
-          self.touched = true;
-          StaticData.sharedInstance.touches -= 1 ;
+        if (self.paused == true)
+        {
+            return
+        }
+        
+//        
+//        if ( StaticData.sharedInstance.touches > 100 )
+//        {
+//            finger.scale = 1
+//            
+//        }else{
+//            finger.scale =  Float(StaticData.sharedInstance.touches / 100)
+//        }
+        
+        finger.position = touch.locationInNode(self)
+        self.touched = true;
+        StaticData.sharedInstance.touches -= 1 ;
+
+        
         
     }
     
     override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
+        if (self.paused == true)
+        {
+            return
+        }
         finger.physicsBody.sensor = true
         self.touched = false;
         
     }
     
     func goNextLevel(){
+
         self.unschedule(#selector(shootElements))
         StaticData.sharedInstance.points += 1 ;
         let _animation:Animations = CCBReader.load("Animations") as! Animations;
@@ -188,6 +249,8 @@ class LevelGenerator: CCNode {
         
         let blockAnimation :Animations = _animation;
         OALSimpleAudio.sharedInstance().playEffect(StaticData.getSoundFile(GameSoundType.WAVEUP.rawValue))
+        _animation.position.x = (CCDirector.sharedDirector().viewSize().width - 320) / 2
+        _animation.position.y += CCDirector.sharedDirector().viewSize().height - 530
         _animation.animationManager.setCompletedAnimationCallbackBlock { (sender:AnyObject!) in
             blockAnimation.removeFromParent();
             //StaticData.sharedInstance.lives = 100;
@@ -220,7 +283,7 @@ class LevelGenerator: CCNode {
             
             rotationRadians = CC_DEGREES_TO_RADIANS(180);
             
-            blaster.position = CGPointMake(CGFloat(self.randomNumberBetween(60, max:260)), 500);
+            blaster.position = CGPointMake(CGFloat(self.randomNumberBetween(60, max:Int(CCDirector.sharedDirector().viewSize().width - 60))), 500);
             
             let directionVector : CGPoint  = ccp(CGFloat(sinf(rotationRadians)),CGFloat(cosf(rotationRadians)));
             let force:CGPoint = ccpMult(directionVector, CGFloat(self.speed));
