@@ -5,12 +5,12 @@
 	<key>SequencerJoints</key>
 	<dict>
 		<key>hidden</key>
-		<false/>
+		<true/>
 		<key>locked</key>
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>5</integer>
+	<integer>6</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -127,7 +127,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>500</real>
+						<real>5000</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -261,7 +261,7 @@
 						<key>value</key>
 						<array>
 							<integer>1</integer>
-							<integer>1</integer>
+							<integer>771</integer>
 						</array>
 					</dict>
 					<dict>
@@ -290,7 +290,7 @@
 						<string>FloatVar</string>
 						<key>value</key>
 						<array>
-							<real>40</real>
+							<real>80</real>
 							<real>0.0</real>
 						</array>
 					</dict>
@@ -317,7 +317,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string>Finger</string>
+		<string>BlackholeFinger</string>
 		<key>customProperties</key>
 		<array>
 			<dict>
@@ -352,7 +352,7 @@
 			<key>collisionType</key>
 			<string>finger</string>
 			<key>cornerRadius</key>
-			<real>55.140625</real>
+			<real>87.58984375</real>
 			<key>density</key>
 			<real>1</real>
 			<key>dynamic</key>

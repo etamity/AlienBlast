@@ -51,7 +51,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>1</string>
+				<string>60</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -61,7 +61,17 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>0</string>
+				<string>5</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>subType</string>
+				<key>optimized</key>
+				<false/>
+				<key>type</key>
+				<integer>3</integer>
+				<key>value</key>
+				<string>UFO_Blue</string>
 			</dict>
 		</array>
 		<key>displayName</key>
@@ -85,7 +95,7 @@
 			<key>collisionType</key>
 			<string>shape</string>
 			<key>cornerRadius</key>
-			<real>24</real>
+			<real>35.980438232421875</real>
 			<key>density</key>
 			<real>1</real>
 			<key>dynamic</key>
@@ -97,8 +107,8 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>24</real>
-					<real>24</real>
+					<real>30.988311767578125</real>
+					<real>37.234405517578125</real>
 				</array>
 			</array>
 			<key>polygons</key>
@@ -112,7 +122,7 @@
 				<key>type</key>
 				<string>StringSimple</string>
 				<key>value</key>
-				<string>UFO_Blue</string>
+				<string>UFO</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -160,7 +170,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>ccbResources/GameAsset/ufoBlue.png</string>
+					<string>ccbResources/Aliens/shipBlue_manned.png</string>
 				</array>
 			</dict>
 			<dict>

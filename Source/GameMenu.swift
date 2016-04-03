@@ -15,9 +15,11 @@ class GameMenu : CCNode{
     func gameButtonPresssed(sender:CCButton!){
         if (sender == startGameBtn)
         {
+            StaticData.sharedInstance.reset()
             StaticData.sharedInstance.events.trigger(GameEvent.GAME_START.rawValue)
             
         }else if (sender == continueBtn){
+           StaticData.sharedInstance.loadData()
            StaticData.sharedInstance.events.trigger(GameEvent.GAME_CONTINUE.rawValue)
         }else if (sender == topScoreBtn){
             StaticData.sharedInstance.events.trigger(GameEvent.GAME_TOPSCORE.rawValue)
@@ -25,7 +27,7 @@ class GameMenu : CCNode{
     }
 
     func didLoadFromCCB(){
-         OALSimpleAudio.sharedInstance().playBg(StaticData.getSoundFile(GameSoundType.GAME_MENU.rawValue), loop:true)
+        OALSimpleAudio.sharedInstance().playBg(StaticData.getSoundFile(GameSoundType.GAME_MENU.rawValue), loop:true)
         
     }
 }

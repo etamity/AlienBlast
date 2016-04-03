@@ -15,6 +15,7 @@ enum GameEvent: String {
     case UPDATE_LIVES
     case UPDATE_LEVEL
     case UPDATE_FINGER
+    case RESET_DEFULAT_FINGER
     case GAME_OVER
     case GAME_PAUSE
     case GAME_START
@@ -27,11 +28,18 @@ enum GameEvent: String {
 enum GameSoundType:String{
     case GAME_MENU = "Sad Town.wav"
     case INGAME_MENU = "Retro Comedy.wav"
+    
     case GAME_PLAYING = "Cheerful Annoyance.wav"
-    case GAME_PLAYING1 = "Night at the Beach.wav"
-    case BLAST = "switch23.wav"
-    case HIT = "zap1.wav"
-    case WAVEUP = "phaserUp6.wav"
+    case GAME_PLAYING1 = "Mishief Stroll.wav"
+    case GAME_PLAYING2 = "Infinite Descent.wav"
+    case GAME_PLAYING3 = "Farm Frolics.wav"
+    case GAME_PLAYING4 = "Polka Train.wav"
+    
+    case BLAST = "phaserUp6.wav"
+    case HIT = "phaserDown3.wav"
+    case WAVEUP = "phaserUp4.wav"
+    case LASER = "laser8.wav"
+    case POWER = "zapThreeToneDown.wav"
 }
 
 enum FingerType: String {
@@ -39,6 +47,7 @@ enum FingerType: String {
     case Sentry = "SentryFinger"
     case Shield = "ShieldFinger"
     case Blackhole = "BlackholeFinger"
+    case Sword = "SwordFinger"
 }
 
 
@@ -56,6 +65,11 @@ enum BlasterType: String {
     case Finger_Sentry
     case Finger_Shield
     case Finger_Blackhole
+    case Finger_Sword
+    case UFO_Yellow
+    case UFO_Beige
+    case UFO_Pink
+    case UFO_Green
 }
 
 enum EffectType: String {
@@ -78,6 +92,8 @@ class StaticData:NSObject{
         set (newValue){
             if (newValue < 50){
                 _touches = 50
+            }else if (_touches > 1000){
+                _touches = 1000
             }else{
                 _touches = newValue
             }
@@ -108,11 +124,14 @@ class StaticData:NSObject{
             if (_level !=  newValue){
             _level = newValue
             self.events.trigger(GameEvent.UPDATE_LEVEL.rawValue,information: newValue)
+                
             }
         }
     }
     
     var bornRate:[Int];
+    
+    var achievements:[Int] = [20,40,50,80,100];
     var lives :Int {
         get {
             return _lives
@@ -149,9 +168,6 @@ class StaticData:NSObject{
         return Int(level)
     }
     
-    
-
-    
     override init () {
         ObjectTypes = [
             BlasterType.Circle_Blue.rawValue,
@@ -166,7 +182,12 @@ class StaticData:NSObject{
             BlasterType.Circle_Pink.rawValue,
             BlasterType.Finger_Shield.rawValue,
             BlasterType.Finger_Sentry.rawValue,
-            BlasterType.Finger_Blackhole.rawValue
+            BlasterType.Finger_Blackhole.rawValue,
+            BlasterType.UFO_Yellow.rawValue,
+            BlasterType.UFO_Green.rawValue,
+            BlasterType.UFO_Pink.rawValue,
+            BlasterType.UFO_Beige.rawValue,
+            BlasterType.Finger_Sword.rawValue
         ];
         bornRate = []
         weak var node:Blaster! = nil;
@@ -189,6 +210,29 @@ class StaticData:NSObject{
     
     
     
+    func saveData(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger(self.level, forKey: "LEVEL")
+        defaults.setInteger(self.points, forKey: "POINTS")
+        defaults.setInteger(self.lives, forKey: "LIVES")
+        defaults.setInteger(self.touches, forKey: "TOUCHES")
+        defaults.synchronize()
+    }
+    
+    
+    
+    func loadData(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        self.level = defaults.integerForKey("LEVEL")
+        self.points = defaults.integerForKey("POINTS")
+        self.lives = defaults.integerForKey("LIVES")
+        self.touches = defaults.integerForKey("TOUCHES")
+        if (self.lives <= 0 )
+        {
+            self.reset()
+        }
+    }
+    
     class func getSoundFile(name:String)->String{
         return "Sounds/\(name)"
     }
@@ -200,6 +244,10 @@ class StaticData:NSObject{
     class func getFingerFile(name:String)->String{
         return "Fingers/\(name)"
     }
+    class func getIconFile(name:String)->String{
+        return "Icons/\(name)"
+    }
+    
     class func getObjectFile(name:String)->String{
         return "Objects/\(name)"
     }

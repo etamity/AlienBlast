@@ -14,7 +14,7 @@ class Blaster: CCSprite {
     var hurtRate :Int = 0;
     var healthRate :Int = 1;
     var type: BlasterType! = nil;
-
+    var subType: String! = "";
     func didLoadFromCCB(){
     
         self.userInteractionEnabled = false;
@@ -28,7 +28,7 @@ class Blaster: CCSprite {
     
 
     func blast(){
-        
+        OALSimpleAudio.sharedInstance().playEffect(StaticData.getSoundFile(GameSoundType.BLAST.rawValue))
 
         var points: Int = StaticData.sharedInstance.points;
         points += 1 ;
@@ -38,6 +38,13 @@ class Blaster: CCSprite {
             var lives : Int = StaticData.sharedInstance.lives;
             lives -= self.hurtRate;
             StaticData.sharedInstance.lives = lives
+        }
+        
+        if (self.type == BlasterType.Clock)
+        {
+            var touches : Int = StaticData.sharedInstance.touches;
+            touches += 500;
+            StaticData.sharedInstance.touches = touches
         }
         var touches : Int = StaticData.sharedInstance.touches;
         touches += self.hurtRate;

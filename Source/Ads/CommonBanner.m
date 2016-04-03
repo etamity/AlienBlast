@@ -34,6 +34,8 @@ NSString * const keyTestDevices = @"testDevices";
 
 NSString * const BannerProviderStatusDidChnage = @"BannerProviderStatusDidChnage";
 
+NSString * const BannerStatusDidChnage = @"BannerStatusDidChnage";
+
 typedef NS_ENUM(NSInteger, BannerProviderState) {
     BannerProviderStateIdle=1,
     BannerProviderStateReady,
@@ -612,6 +614,7 @@ NSString * const CommonBannerStatusDidChangeNotification = @"CommonBannerStatusD
                         provider.state = BannerProviderStateIdle;
                         [self performLayoutAnimated:NO completion:^(BOOL finished) {
                             self.currentBannerProvider = nil;
+    
                         }];
                     }];
                 }
@@ -623,6 +626,7 @@ NSString * const CommonBannerStatusDidChangeNotification = @"CommonBannerStatusD
                             [self syncTask:^{
                                 [self performLayoutAnimated:NO completion:^(BOOL finished) {
                                     self.currentBannerProvider = nil;
+        
                                 }];
                             }];
                         }
@@ -644,6 +648,7 @@ NSString * const CommonBannerStatusDidChangeNotification = @"CommonBannerStatusD
                                     // diplay banner
                                     [self performLayoutAnimated:YES completion:^(BOOL finished) {
                                         LOG([self currentProvider], _cmd);
+   
                                     }];
                                 }];
                             }];
@@ -717,6 +722,7 @@ NSString * const CommonBannerStatusDidChangeNotification = @"CommonBannerStatusD
     
     self.rootViewController.view.frame = contentFrame;
     self.bannerContainer.frame = bannerFrame;
+
 }
 
 @end

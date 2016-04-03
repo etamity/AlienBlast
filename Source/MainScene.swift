@@ -1,13 +1,16 @@
 import Foundation
 import GoogleMobileAds;
+import GameKit
+
 class MainScene: CCNode,CCPhysicsCollisionDelegate {
 
-    var _physicsNode:CCPhysicsNode! = nil;
-    var levelNode:CCNode! = nil;
-    var inGameMenu:INGameMenu! = nil;
-    var userInterface:UserInterFace! = nil;
-    var levelGenerator:LevelGenerator! = nil;
-    
+    weak var _physicsNode:CCPhysicsNode! = nil;
+    weak var levelNode:CCNode! = nil;
+    weak var inGameMenu:INGameMenu! = nil;
+    weak var userInterface:UserInterFace! = nil;
+    weak var levelGenerator:LevelGenerator! = nil;
+    weak var gameMenu:GameMenu! = nil ;
+    var currnetLevel : CCNode! = nil;
     func didLoadFromCCB(){
         self.userInteractionEnabled = true;
         _physicsNode.collisionDelegate = self;
@@ -23,11 +26,13 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         //CommonBanner.setBannerPosition(CommonBannerPosition.Top)
         CommonBanner.bannerControllerWithRootViewController(CCDirector.sharedDirector())
         CommonBanner.startManaging()
+    
+        
         
         OALSimpleAudio.sharedInstance().preloadEffect(StaticData.getSoundFile(GameSoundType.BLAST.rawValue))
         OALSimpleAudio.sharedInstance().preloadEffect(StaticData.getSoundFile(GameSoundType.HIT.rawValue))
         OALSimpleAudio.sharedInstance().preloadEffect(StaticData.getSoundFile(GameSoundType.WAVEUP.rawValue))
-        
+        OALSimpleAudio.sharedInstance().preloadEffect(StaticData.getSoundFile(GameSoundType.LASER.rawValue))
         StaticData.sharedInstance.events.listenTo(GameEvent.GAME_START.rawValue) {
 
             StaticData.sharedInstance.reset()
@@ -44,15 +49,36 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         StaticData.sharedInstance.events.listenTo(GameEvent.GAME_TOPSCORE.rawValue) {
             self.gameAction(GameEvent.GAME_TOPSCORE)
         }
+        StaticData.sharedInstance.events.listenTo(GameEvent.GAME_OVER.rawValue) {
+            self.saveHighscore(StaticData.sharedInstance.points)
+        }
         
+        StaticData.sharedInstance.events.listenTo(GameEvent.GAME_OVER.rawValue) {
+            self.saveHighscore(StaticData.sharedInstance.points)
+        }
+        
+        StaticData.sharedInstance.events.listenTo(GameEvent.UPDATE_LEVEL.rawValue) {(info:Any?) in
+            if let data = info as? Int {
+                if StaticData.sharedInstance.achievements.contains(data){
+                   
+                    self.saveAchievement(data);
+                }
+            }
+        }
+        
+        
+
+        self.updateLayout()
         showGameMenu()
-        
+        let vc : UIViewController = (UIApplication.sharedApplication().keyWindow?.rootViewController)!
+        EGC.sharedInstance(vc);
     }
 
     func gameAction(event:GameEvent){
         CCDirector.sharedDirector().resume()
         switch event {
         case .GAME_TOPSCORE:
+            self.showLeaderBoard()
             break
         case .GAME_MAINMENU:
             showGameMenu()
@@ -70,14 +96,56 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         
     }
     
+    func showLeaderBoard(){
+        EGC.showGameCenterLeaderboard(leaderboardIdentifier: "AlienBlastScore")
+        
+    }
+    func saveHighscore(score:Int){
+        EGC.reportScoreLeaderboard(leaderboardIdentifier: "AlienBlastScore",score: score)
+    }
+    func saveAchievement(level:Int){
+         print("New achievement: achievement\(level)")
+        EGC.showCustomBanner(title: "Congrats!", description: "You have achieved \(level) waves!")
+
+        EGC.reportAchievement(progress: 100.00, achievementIdentifier: "achievement\(level)", showBannnerIfCompleted: true)
+    }
+    
+    func getAllAchievements(){
+        EGC.getGKAllAchievementDescription {
+            (arrayGKAD) -> Void in
+            if let arrayAchievementDescription = arrayGKAD {
+                for achievement in arrayAchievementDescription  {
+                    print("\n[Easy Game Center] ID : \(achievement.identifier)\n")
+                    print("\n[Easy Game Center] Title : \(achievement.title)\n")
+                    print("\n[Easy Game Center] Achieved Description : \(achievement.achievedDescription)\n")
+                    print("\n[Easy Game Center] Unachieved Description : \(achievement.unachievedDescription)\n")
+                }
+            }
+        }
+    }
+    
+    
     func showGameMenu(){
         levelNode.removeAllChildren()
-        let gameMenu:GameMenu! = CCBReader.load("GameMenu") as! GameMenu;
-        
+        gameMenu = CCBReader.load("GameMenu") as! GameMenu;
         gameMenu.position.x = (CCDirector.sharedDirector().viewSize().width - 320) / 2
-        
+        gameMenu.position.y = (CCDirector.sharedDirector().viewSize().height - 480) / 2
         levelNode.addChild(gameMenu)
     }
+    
+    override func viewDidResizeTo(newViewSize: CGSize) {
+        super.viewDidResizeTo(newViewSize)
+        self.updateLayout()
+    }
+    
+    func updateLayout(){
+        if (self.gameMenu != nil){
+            gameMenu.position.x = (CCDirector.sharedDirector().viewSize().width - 320) / 2
+            gameMenu.position.y = (CCDirector.sharedDirector().viewSize().height - 480) / 2
+        }
+        
+    }
+    
     
     func gameStart(){
         self.levelNode.removeAllChildren()
@@ -88,23 +156,10 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         
         let newLevelName:String = "Levels/\(levelName)";
         
-        let currnetLevel = CCBReader.load(newLevelName);
+        currnetLevel = CCBReader.load(newLevelName);
         
         
         levelNode.addChild(currnetLevel);
-        
-//        let frame:CCDrawNode = CCDrawNode();
-//        if var verts : [CGPoint] = [] {
-//            verts.append(ccp(currnetLevel.position.x, currnetLevel.position.y))
-//            verts.append(ccp(CCDirector.sharedDirector().viewSize().width, currnetLevel.position.y))
-//            verts.append(ccp(CCDirector.sharedDirector().viewSize().width, currnetLevel.contentSize.height))
-//            verts.append(ccp(currnetLevel.position.x, currnetLevel.contentSize.height))
-//            frame.drawPolyWithVerts(verts, count: 4, fillColor: nil, borderWidth: 2.0, borderColor: CCColor.grayColor())
-//        }
-//        
-//        
-//        levelNode.addChild(frame);
-        
         
         
         let userInterface :UserInterFace = CCBReader.load("UserInterface") as! UserInterFace
@@ -148,11 +203,11 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
 
         if let nA = nodeA as? Blaster{
             
-            let targetName = nA.name;
             if let nB = nodeB as? Finger{
-                OALSimpleAudio.sharedInstance().playEffect(StaticData.getSoundFile(GameSoundType.BLAST.rawValue))
-                nB.blastTarget(targetName)
-            
+                if (nA.subType != ""){
+                    print(nA.subType)
+                    nB.blastTarget(nA.subType,node: self.currnetLevel)
+                }
             }
             
             nA.blast();
@@ -165,8 +220,17 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
     func ccPhysicsCollisionPreSolve(pair: CCPhysicsCollisionPair!, power nodeA: CCNode!, finger nodeB: CCNode!) -> Bool {
         
         if let nA = nodeA as? Power{
-            StaticData.sharedInstance.events.trigger(GameEvent.UPDATE_FINGER.rawValue, information: nA.subType)
+            let type : FingerType = FingerType(rawValue: nA.subType)!
             
+            if let nB = nodeB as? Finger{
+                print(type,nB.type)
+                if (nB.type == FingerType.Default)
+                {
+                    StaticData.sharedInstance.events.trigger(GameEvent.UPDATE_FINGER.rawValue, information: nA.subType)
+                }
+            }
+            
+
             nA.blast();
             
         }
@@ -186,4 +250,80 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         return false
     }
     
+//    func ccPhysicsCollisionPreSolve(pair: CCPhysicsCollisionPair!, shape nodeA: CCNode!,
+//                                    blackhole nodeB: CCNode!) -> Bool {
+//        
+//        if let nA = nodeA as? Blaster{
+//            if let nB = nodeB {
+//                
+//                let rotationRadians = CC_RADIANS_TO_DEGREES(-1 * Float(ccpToAngle(nB.parent.position)));
+//                print("ccpToAngle:",rotationRadians,nB.parent.position);
+//                let directionVector : CGPoint  = ccp(CGFloat(sinf(rotationRadians)),CGFloat(cosf(rotationRadians)));
+//
+//                let force:CGPoint = ccpMult(directionVector, CGFloat(1000));
+//                nA.physicsBody.applyForce(force)
+//            }
+//            
+//        }
+//
+//        return false
+//    }
+    //send high score to leaderboard
+//    func saveHighscore(score:Int) {
+//        
+//        //check if user is signed in
+//        if GKLocalPlayer.localPlayer().authenticated {
+//            
+//            let scoreReporter = GKScore(leaderboardIdentifier: "AlienBlastScore") //leaderboard id here
+//            
+//            scoreReporter.value = Int64(score) //score variable here (same as above)
+//            
+//            let scoreArray: [GKScore] = [scoreReporter]
+//    
+//            GKScore.reportScores(scoreArray, withCompletionHandler: {(error : NSError?) -> Void in
+//                if error != nil {
+//                    print("error")
+//                }
+//            })
+//            
+//        }
+//        
+//    }
+//    
+//    
+//    //shows leaderboard screen
+//    func showLeader() {
+//        let vc = UIApplication.sharedApplication().keyWindow?.rootViewController
+//        let gc = GKGameCenterViewController()
+//        gc.gameCenterDelegate = self
+//        vc?.presentViewController(gc, animated: true, completion: nil)
+//    }
+//    
+//    //hides leaderboard screen
+//    func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController)
+//    {
+//        gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
+//        
+//    }
+//    
+//    //initiate gamecenter
+//    func authenticateLocalPlayer(){
+//        
+//        let localPlayer = GKLocalPlayer.localPlayer()
+//        let vc : UIViewController = (UIApplication.sharedApplication().keyWindow?.rootViewController)!
+//        localPlayer.authenticateHandler = {(viewController, error) -> Void in
+//            
+//            if (viewController != nil) {
+//            
+//                vc.presentViewController(viewController!, animated: true, completion: nil)
+//                //vc.view.addSubview(viewController!.view)
+//                
+//            }
+//                
+//            else {
+//                print("Game Center:",(GKLocalPlayer.localPlayer().authenticated))
+//            }
+//        }
+//    }
+
 }

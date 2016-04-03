@@ -8,7 +8,6 @@
 
 import Foundation
 class Power: Blaster {
-    var subType: String! = "";
     override func didLoadFromCCB() {
         super.didLoadFromCCB()
         self.physicsBody.collisionType = "power";

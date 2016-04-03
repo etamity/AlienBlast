@@ -19,8 +19,11 @@ class SentryFinger: Finger {
     }
     
     func onShootBullet(){
+        OALSimpleAudio.sharedInstance().playEffect(StaticData.getSoundFile(GameSoundType.LASER.rawValue))
+
         self.shootBullet(self.convertToWorldSpace(leftCanon.position))
         self.shootBullet(self.convertToWorldSpace(rightCanon.position))
+        self.shootBullet(self.position)
     }
     
     

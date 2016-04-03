@@ -16,6 +16,8 @@ class  UserInterFace: CCNode {
     weak var touchBarBg:CCNodeColor! = nil;
     weak var statusPanel :CCNode! = nil;
     weak var waveLabel :CCNode! = nil;
+    weak var powerBox:CCLayoutBox! = nil;
+    
     func didLoadFromCCB(){
         let staticData = StaticData.sharedInstance
         staticData.events.listenTo(GameEvent.UPDATE_LIVES.rawValue) { (info:Any?) in
@@ -43,12 +45,50 @@ class  UserInterFace: CCNode {
         staticData.events.listenTo(GameEvent.GAME_RESUME.rawValue) {
           self.pauseBtn.visible = true;
         }
-     touchesBar.contentSize.width = CCDirector.sharedDirector().viewSize().width - 2
-     touchBarBg.contentSize.width = CCDirector.sharedDirector().viewSize().width
-     statusPanel.position.y += CCDirector.sharedDirector().viewSize().height - 530
-     waveLabel.position.x = CCDirector.sharedDirector().viewSize().width - 70
-     pauseBtn.position.x = CCDirector.sharedDirector().viewSize().width - 25
-     pointsLCD.position.x = CCDirector.sharedDirector().viewSize().width / 2
+        
+        
+        staticData.events.listenTo(GameEvent.UPDATE_FINGER.rawValue) { (info:Any?) in
+            if let data = info as? String {
+                self.powerBox.removeAllChildren()
+                let type : FingerType = FingerType(rawValue: data)!
+                let fingerFile : String = StaticData.getIconFile(type.rawValue)
+                let fingerNode  = CCBReader.load(fingerFile)
+                self.powerBox.addChild(fingerNode)
+            }
+        }
+        
+        staticData.events.listenTo(GameEvent.RESET_DEFULAT_FINGER.rawValue) {
+       
+                self.powerBox.removeAllChildren()
+                let fingerFile : String = StaticData.getIconFile(FingerType.Default.rawValue)
+                let fingerNode  = CCBReader.load(fingerFile)
+                self.powerBox.addChild(fingerNode)
+            
+        }
+        
+        self.updateLevel(staticData.level)
+        self.updateLives(staticData.lives)
+        self.updatePoints(staticData.points)
+        self.updateTouchesLCD(staticData.touches)
+        
+
+        self.updateLayout()
+    }
+    
+    override func viewDidResizeTo(newViewSize: CGSize) {
+        super.viewDidResizeTo(newViewSize)
+          self.updateLayout()
+    }
+
+    func updateLayout(){
+        touchesBar.contentSize.width = CCDirector.sharedDirector().viewSize().width - 2
+        touchBarBg.contentSize.width = CCDirector.sharedDirector().viewSize().width
+
+        statusPanel.position.y = CCDirector.sharedDirector().viewSize().height - 530
+      
+        waveLabel.position.x = CCDirector.sharedDirector().viewSize().width - 70
+        pauseBtn.position.x = CCDirector.sharedDirector().viewSize().width - 25
+        pointsLCD.position.x = CCDirector.sharedDirector().viewSize().width / 2
     }
     
     func pauseGame(sender:CCButton!){

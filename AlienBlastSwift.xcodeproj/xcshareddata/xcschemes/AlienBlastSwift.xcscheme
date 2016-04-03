@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0610"
+   LastUpgradeVersion = "0730"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
-               BuildableName = "AlienBlastSwift.app"
+               BuildableName = "Alien Blast.app"
                BlueprintName = "AlienBlastSwift iOS"
                ReferencedContainer = "container:AlienBlastSwift.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
-            BuildableName = "AlienBlastSwift.app"
+            BuildableName = "Alien Blast.app"
             BlueprintName = "AlienBlastSwift iOS"
             ReferencedContainer = "container:AlienBlastSwift.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
-            BuildableName = "AlienBlastSwift.app"
+            BuildableName = "Alien Blast.app"
             BlueprintName = "AlienBlastSwift iOS"
             ReferencedContainer = "container:AlienBlastSwift.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
-            BuildableName = "AlienBlastSwift.app"
+            BuildableName = "Alien Blast.app"
             BlueprintName = "AlienBlastSwift iOS"
             ReferencedContainer = "container:AlienBlastSwift.xcodeproj">
          </BuildableReference>

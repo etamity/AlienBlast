@@ -13,12 +13,13 @@ class INGameMenu: CCNode{
     weak var closeButton:CCButton! = nil;
     weak var menuButton:CCButton! = nil;
     weak var restartButton:CCButton! = nil;
-    weak var continueButton:CCButton! = nil;
+    weak var resumeButton:CCButton! = nil;
     weak var gameOverBtns:CCLayoutBox! = nil;
     var title:CCLabelTTF! = nil;
     func didLoadFromCCB(){
-        OALSimpleAudio.sharedInstance().playBg(StaticData.getSoundFile(GameSoundType.INGAME_MENU.rawValue), loop:true)
-        self.gameOverView()
+        
+      OALSimpleAudio.sharedInstance().playBg(StaticData.getSoundFile(GameSoundType.INGAME_MENU.rawValue), loop:true)
+        //self.gameOverView()
     }
     
     func updateScoreLCD(value:Int){
@@ -31,24 +32,31 @@ class INGameMenu: CCNode{
     
     func gameOverView(){
         self.title.string = "GAME OVER"
-        continueButton.visible = false
-        gameOverBtns.visible = true
+        if let button = resumeButton{
+            button.removeFromParent()
+        }
     }
     func gamePauseView(){
+        StaticData.sharedInstance.saveData()
+        
         self.title.string = "GAME PAUSE"
-        continueButton.visible = true
-        gameOverBtns.visible = false
+        if let button = restartButton{
+            button.removeFromParent()
+        }
+    
+
     }
     
     func gameButtonPresssed(sender:CCButton!) {
-        if sender == restartButton{
+        if sender.name == "restartButton"{
+            StaticData.sharedInstance.reset()
             StaticData.sharedInstance.events.trigger(GameEvent.GAME_START.rawValue)
         }
-        if sender == menuButton{
+        if sender.name == "menuButton"{
             StaticData.sharedInstance.events.trigger(GameEvent.GAME_MAINMENU.rawValue)
         }
         
-        if sender == continueButton{
+        if sender.name == "resumeButton"{
             self.removeFromParent()
             StaticData.sharedInstance.events.trigger(GameEvent.GAME_RESUME.rawValue)
         }

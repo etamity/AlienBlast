@@ -127,7 +127,7 @@ public class EGC: NSObject, GKGameCenterControllerDelegate, GKMatchmakerViewCont
     /*####################################################################################################*/
     override init() {
         super.init()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "authenticationChanged", name: GKPlayerAuthenticationDidChangeNotificationName, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EGC.authenticationChanged), name: GKPlayerAuthenticationDidChangeNotificationName, object: nil)
     }
     /**
     Static EGC
@@ -173,7 +173,7 @@ public class EGC: NSObject, GKGameCenterControllerDelegate, GKMatchmakerViewCont
             }
             Static.delegate = EGC.delegate
             
-            EGC.printLogEGC("New delegate UIViewController is \(_stdlib_getDemangledTypeName(newValue))\n")
+            //EGC.printLogEGC("New delegate UIViewController is \(_stdlib_getDemangledTypeName(newValue))\n")
         }
     }
     
@@ -1240,7 +1240,7 @@ public class EGC: NSObject, GKGameCenterControllerDelegate, GKMatchmakerViewCont
     func checkupNetAndPlayer() {
         dispatch_async(dispatch_get_main_queue()) {
             if self.timerNetAndPlayer == nil {
-                self.timerNetAndPlayer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("checkupNetAndPlayer"), userInfo: nil, repeats: true)
+                self.timerNetAndPlayer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(EGC.checkupNetAndPlayer), userInfo: nil, repeats: true)
             }
             
             if EGC.isConnectedToNetwork {

@@ -38,39 +38,28 @@ class Finger: CCSprite {
     
     func setTypeOfCountsFromName(typeName:String){
 
-        let index = Int(StaticData.sharedInstance.ObjectTypes.indexOf(typeName)!)
+        let oType : BlasterType = BlasterType(rawValue: typeName)!
         var count = 0;
         var offset = 0;
-        switch (index) {
-        case 0:
-            count = 0;
-            break;
-        case 1:
-            count=1;
-            break;
-        case 2:
+        switch (oType) {
+
+        case .UFO_Beige:
             count=2;
             offset=90;
             break;
-        case 3:
-            count=3;
-            offset=60;
-            break;
-        case 4:
+        case .UFO_Blue:
             count=4;
             offset=45;
             break;
-        case 5:
-            count=5;
+        case .UFO_Green:
+            count=6;
+            offset=30;
             break;
-        case 6:
-            count=0;
-            break;
-        case 7:
+        case .UFO_Pink:
             count=12;
             break;
-        case 8:
-            count=5;
+        case .Circle_Yellow:
+            count=8;
             break;
         default:
             break;
@@ -79,7 +68,7 @@ class Finger: CCSprite {
         self.offsetDegree = offset;
 
     }
-    func blastTarget(targetName:String){
+    func blastTarget(targetName:String,node:CCNode){
 
         
         self.setTypeOfCountsFromName(targetName);
@@ -97,13 +86,15 @@ class Finger: CCSprite {
                 let directionVector :CGPoint  = ccp(CGFloat(sinf(rotationRadians)),CGFloat(cosf(rotationRadians)));
                 let bulletOffset :CGPoint = ccpMult(directionVector, 1);
                 bullet = CCBReader.load("Objects/Bullet");
-                bullet.position=ccpAdd(self.position, bulletOffset);
-                bullet.physicsBody.collisionGroup = "blaster";
-                
-                
-                let force: CGPoint = ccpMult(directionVector, 8000);
-                bullet.physicsBody.applyForce(force);
-                self.parent.addChild(bullet);
+                if let abullect = bullet {
+                    abullect.position=ccpAdd(self.position, bulletOffset);
+                    abullect.physicsBody.collisionGroup = "blaster";
+                    
+                    
+                    let force: CGPoint = ccpMult(directionVector, 5000);
+                    abullect.physicsBody.applyForce(force);
+                    node.addChild(abullect);
+                }
                 
             }
         }
