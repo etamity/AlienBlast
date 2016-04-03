@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
-               BuildableName = "Alien Blast.app"
+               BuildableName = "AlienBlast.app"
                BlueprintName = "AlienBlastSwift iOS"
                ReferencedContainer = "container:AlienBlastSwift.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
-            BuildableName = "Alien Blast.app"
+            BuildableName = "AlienBlast.app"
             BlueprintName = "AlienBlastSwift iOS"
             ReferencedContainer = "container:AlienBlastSwift.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
-            BuildableName = "Alien Blast.app"
+            BuildableName = "AlienBlast.app"
             BlueprintName = "AlienBlastSwift iOS"
             ReferencedContainer = "container:AlienBlastSwift.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
-            BuildableName = "Alien Blast.app"
+            BuildableName = "AlienBlast.app"
             BlueprintName = "AlienBlastSwift iOS"
             ReferencedContainer = "container:AlienBlastSwift.xcodeproj">
          </BuildableReference>

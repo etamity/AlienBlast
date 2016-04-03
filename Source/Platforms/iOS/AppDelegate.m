@@ -32,6 +32,9 @@
 #import <iRate/iRate.h>
 #import <SARate/SARate.h>
 #import <Google/Analytics.h>
+#import <Parse/Parse.h>
+
+
 @import GoogleMobileAds;
 @import iRate;
 @implementation AppController
@@ -49,8 +52,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    
-
+    [Parse setApplicationId:@"DSCvJIIHq3x49mJOxNh3WHbNTwNwHTzD6D9CcBxu"
+                  clientKey:@"LJeVksw5Ua7D0cUvuQ8nUZjjkBScC5opG5ti1PD9"];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes  categories:nil];
+    [application registerUserNotificationSettings:settings];
+    [application registerForRemoteNotifications];
     
     // Configure Cocos2d with the options set in SpriteBuilder
     NSString* configPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Published-iOS"]; // TODO: add support for Published-Android support
@@ -104,6 +112,16 @@
 - (CCScene*) startScene
 {
     return [CCBReader loadAsScene:@"MainScene"];
+}
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+    NSString *newToken = [deviceToken description];
+    newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+    NSLog(@"My token is: %@", newToken);
 }
 
 @end

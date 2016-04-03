@@ -44,6 +44,7 @@ class LevelGenerator: CCNode {
                 }
                 
                 if (staticData.achievements.contains(data)){
+                    staticData.saveData()
                     self.changeBackground(data)
                 }
             }
@@ -63,7 +64,7 @@ class LevelGenerator: CCNode {
         
         staticData.events.listenTo(GameEvent.GAME_OVER.rawValue) {
             self.stop()
-        
+            staticData.saveData()
             let gameover : INGameMenu = CCBReader.load("InGameMenu") as! INGameMenu
             gameover.updateLevelLCD(self.level)
             gameover.updateScoreLCD(staticData.points)
@@ -132,7 +133,7 @@ class LevelGenerator: CCNode {
         _animation.position.y += CCDirector.sharedDirector().viewSize().height - 580
 
         _animation.animationManager.setCompletedAnimationCallbackBlock { (sender:AnyObject!) in
-            _animation.removeFromParent();
+            _animation.removeFromParentAndCleanup(true)
         }
         
     }
@@ -170,9 +171,9 @@ class LevelGenerator: CCNode {
         if let abg = bg {
             self.backgroundNode.addChild(abg,z: -1)
         }
-        let action = CCActionFadeTo.actionWithDuration(2, opacity: 0.0)
+        let action = CCActionFadeTo.actionWithDuration(5, opacity: 0.0)
         let callback = CCActionCallBlock { 
-            oldbg.removeFromParent()
+            oldbg.removeFromParentAndCleanup(true)
             bg.zOrder = 0
         }
         
@@ -242,7 +243,7 @@ class LevelGenerator: CCNode {
         let effectNode : CCParticleSystem = CCBReader.load(effectFile) as! CCParticleSystem
         effectNode.autoRemoveOnFinish = true
         let pt = finger.position;
-        finger.removeFromParent()
+        finger.removeFromParentAndCleanup(true);
         finger = fingerNode
         finger.position = pt
         finger.type = type;
@@ -326,7 +327,7 @@ class LevelGenerator: CCNode {
         _animation.position.x = (CCDirector.sharedDirector().viewSize().width - 320) / 2
         _animation.position.y += CCDirector.sharedDirector().viewSize().height - 530
         _animation.animationManager.setCompletedAnimationCallbackBlock { (sender:AnyObject!) in
-            _animation.removeFromParent();
+            _animation.removeFromParentAndCleanup(true)
 
             self.start()
         }
@@ -348,7 +349,7 @@ class LevelGenerator: CCNode {
                 index = 0;
             }
             
-            
+
             
             let type:String = ElementsTypes[index];
             let blaster : Blaster = CCBReader.load(StaticData.getObjectFile(type)) as! Blaster;

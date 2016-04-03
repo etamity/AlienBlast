@@ -23,9 +23,21 @@ class Blaster: CCSprite {
         self.physicsBody.collisionGroup = "blaster";
         self.physicsBody.affectedByGravity = true;
         self.type = BlasterType(rawValue: self.name)
-        
     }
     
+    func topUpAnimation(block:()->Void){
+        self.physicsBody.affectedByGravity = false
+        self.physicsBody.collisionType = ""
+        let moveto = CCActionMoveBy.actionWithDuration(3, position: CGPointMake(-300, 300))
+        let scaleToHeart = CCActionScaleTo.actionWithDuration(3, scale: 5)
+        let fadeout = CCActionFadeTo.actionWithDuration(3, opacity: 0.0)
+        let callback = CCActionCallBlock.actionWithBlock({
+            block()
+        })
+        let spwan = CCActionSpawn.actionWithArray([moveto,scaleToHeart,fadeout])
+        let sequene = CCActionSequence.actionWithArray([spwan,callback])
+        self.runAction(sequene as! CCActionSequence)
+    }
 
     func blast(){
         OALSimpleAudio.sharedInstance().playEffect(StaticData.getSoundFile(GameSoundType.BLAST.rawValue))
@@ -38,26 +50,31 @@ class Blaster: CCSprite {
             var lives : Int = StaticData.sharedInstance.lives;
             lives -= self.hurtRate;
             StaticData.sharedInstance.lives = lives
-        }
-        
-        if (self.type == BlasterType.Clock)
-        {
-            var touches : Int = StaticData.sharedInstance.touches;
-            touches += 500;
-            StaticData.sharedInstance.touches = touches
-        }
-        var touches : Int = StaticData.sharedInstance.touches;
-        touches += self.hurtRate;
-        StaticData.sharedInstance.touches = touches
-        
-        let pnode:CCParticleSystem = CCBReader.load(StaticData.getEffectFile(EffectType.BLAST.rawValue)) as! CCParticleSystem;
-            pnode.position = self.position;
-            pnode.autoRemoveOnFinish = true;
-            pnode.duration=0.5;
-            self.parent.addChild(pnode);
             self.removeFromParentAndCleanup(true);
-            
-
+        }else
+            if (self.type == BlasterType.Clock)
+            {
+                var touches : Int = StaticData.sharedInstance.touches;
+                touches += 500;
+                StaticData.sharedInstance.touches = touches
+                self.removeFromParentAndCleanup(true);
+                
+            }
+            else
+            {
+                var touches : Int = StaticData.sharedInstance.touches;
+                touches += self.hurtRate;
+                StaticData.sharedInstance.touches = touches
+                if (self.parent != nil){
+                    let pnode:CCParticleSystem = CCBReader.load(StaticData.getEffectFile(EffectType.BLAST.rawValue)) as! CCParticleSystem;
+                    pnode.position = self.position;
+                    pnode.autoRemoveOnFinish = true;
+                    pnode.duration=0.5;
+                    self.parent.addChild(pnode);
+                }
+                self.removeFromParentAndCleanup(true);
+                
+        }
     }
     
     override func update(delta: CCTime) {
@@ -76,12 +93,13 @@ class Blaster: CCSprite {
                     StaticData.sharedInstance.lives = lives
                     OALSimpleAudio.sharedInstance().playEffect(StaticData.getSoundFile(GameSoundType.HIT.rawValue))
                 }
-                
-                let pnode: CCParticleSystem = CCBReader.load(StaticData.getEffectFile(EffectType.HURT.rawValue)) as! CCParticleSystem;
-                pnode.position = self.position;
-                pnode.autoRemoveOnFinish = true;
-                pnode.duration = 0.5;
-                self.parent.addChild(pnode);
+                if (self.parent != nil){
+                    let pnode: CCParticleSystem = CCBReader.load(StaticData.getEffectFile(EffectType.HURT.rawValue)) as! CCParticleSystem;
+                    pnode.position = self.position;
+                    pnode.autoRemoveOnFinish = true;
+                    pnode.duration = 0.5;
+                    self.parent.addChild(pnode);
+                }
             }
             self.removeFromParentAndCleanup(true);
             

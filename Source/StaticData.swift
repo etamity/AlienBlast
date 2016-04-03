@@ -216,6 +216,15 @@ class StaticData:NSObject{
         defaults.setInteger(self.points, forKey: "POINTS")
         defaults.setInteger(self.lives, forKey: "LIVES")
         defaults.setInteger(self.touches, forKey: "TOUCHES")
+        
+        let points = defaults.integerForKey("BEST_POINTS")
+        
+        if (self.points > points){
+            defaults.setInteger(self.level, forKey: "BEST_LEVEL")
+            defaults.setInteger(self.points, forKey: "BEST_POINTS")
+        }
+        
+        
         defaults.synchronize()
     }
     

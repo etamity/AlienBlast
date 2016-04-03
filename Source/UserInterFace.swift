@@ -17,7 +17,7 @@ class  UserInterFace: CCNode {
     weak var statusPanel :CCNode! = nil;
     weak var waveLabel :CCNode! = nil;
     weak var powerBox:CCLayoutBox! = nil;
-    
+    weak var heartIcon:CCSprite! = nil;
     func didLoadFromCCB(){
         let staticData = StaticData.sharedInstance
         staticData.events.listenTo(GameEvent.UPDATE_LIVES.rawValue) { (info:Any?) in
@@ -49,7 +49,7 @@ class  UserInterFace: CCNode {
         
         staticData.events.listenTo(GameEvent.UPDATE_FINGER.rawValue) { (info:Any?) in
             if let data = info as? String {
-                self.powerBox.removeAllChildren()
+                self.powerBox.removeAllChildrenWithCleanup(true)
                 let type : FingerType = FingerType(rawValue: data)!
                 let fingerFile : String = StaticData.getIconFile(type.rawValue)
                 let fingerNode  = CCBReader.load(fingerFile)
@@ -59,7 +59,7 @@ class  UserInterFace: CCNode {
         
         staticData.events.listenTo(GameEvent.RESET_DEFULAT_FINGER.rawValue) {
        
-                self.powerBox.removeAllChildren()
+                self.powerBox.removeAllChildrenWithCleanup(true)
                 let fingerFile : String = StaticData.getIconFile(FingerType.Default.rawValue)
                 let fingerNode  = CCBReader.load(fingerFile)
                 self.powerBox.addChild(fingerNode)
@@ -73,6 +73,18 @@ class  UserInterFace: CCNode {
         
 
         self.updateLayout()
+    }
+    
+    func topUpAnimation(target:CCNode,block:()->Void){
+
+        let scaleToHeart1 = CCActionScaleTo.actionWithDuration(0.5, scale: 0.35)
+        let scaleToHeart2 = CCActionScaleTo.actionWithDuration(0.5, scale: 0.5)
+        let scaleToHeart3 = CCActionScaleTo.actionWithDuration(0.5, scale: 0.4)
+        let callback = CCActionCallBlock.actionWithBlock({
+            block()
+        })
+        let sequene = CCActionSequence.actionWithArray([scaleToHeart1,scaleToHeart2,scaleToHeart3,callback])
+        target.runAction(sequene as! CCActionSequence)
     }
     
     override func viewDidResizeTo(newViewSize: CGSize) {
@@ -97,6 +109,10 @@ class  UserInterFace: CCNode {
     }
     
     func updateLives(value:Int){
+        
+        self.topUpAnimation(self.heartIcon) { 
+    
+        }
         self.livesLCD.string = "\(value)"
     }
     func updateTouchesLCD(value:Int){

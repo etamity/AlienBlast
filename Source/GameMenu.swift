@@ -12,6 +12,8 @@ class GameMenu : CCNode{
     weak var startGameBtn:CCButton! = nil
     weak var continueBtn:CCButton! = nil
     weak var topScoreBtn:CCButton! = nil
+    weak var bestScore:CCLabelTTF! = nil
+    
     func gameButtonPresssed(sender:CCButton!){
         if (sender == startGameBtn)
         {
@@ -28,6 +30,15 @@ class GameMenu : CCNode{
 
     func didLoadFromCCB(){
         OALSimpleAudio.sharedInstance().playBg(StaticData.getSoundFile(GameSoundType.GAME_MENU.rawValue), loop:true)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let level = defaults.integerForKey("BEST_LEVEL")
+        let points = defaults.integerForKey("BEST_POINTS")
+     
+        bestScore.string = "Best Wave: \(level) \n Best Score: \(points)"
+            
+        
+        
+       
         
     }
 }

@@ -23,7 +23,6 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
                                       requestParams: [keyAdUnitID: "ca-app-pub-7660105848150286/2679623255",
                                                     keyTestDevices : []])
         CCDirector.sharedDirector().canDisplayAds = true;
-        //CommonBanner.setBannerPosition(CommonBannerPosition.Top)
         CommonBanner.bannerControllerWithRootViewController(CCDirector.sharedDirector())
         CommonBanner.startManaging()
     
@@ -126,7 +125,7 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
     
     
     func showGameMenu(){
-        levelNode.removeAllChildren()
+        levelNode.removeAllChildrenWithCleanup(true)
         gameMenu = CCBReader.load("GameMenu") as! GameMenu;
         gameMenu.position.x = (CCDirector.sharedDirector().viewSize().width - 320) / 2
         gameMenu.position.y = (CCDirector.sharedDirector().viewSize().height - 480) / 2
@@ -148,7 +147,7 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
     
     
     func gameStart(){
-        self.levelNode.removeAllChildren()
+        self.levelNode.removeAllChildrenWithCleanup(true)
         self.loadLevel("LevelKing")
     }
     
@@ -250,80 +249,6 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         return false
     }
     
-//    func ccPhysicsCollisionPreSolve(pair: CCPhysicsCollisionPair!, shape nodeA: CCNode!,
-//                                    blackhole nodeB: CCNode!) -> Bool {
-//        
-//        if let nA = nodeA as? Blaster{
-//            if let nB = nodeB {
-//                
-//                let rotationRadians = CC_RADIANS_TO_DEGREES(-1 * Float(ccpToAngle(nB.parent.position)));
-//                print("ccpToAngle:",rotationRadians,nB.parent.position);
-//                let directionVector : CGPoint  = ccp(CGFloat(sinf(rotationRadians)),CGFloat(cosf(rotationRadians)));
-//
-//                let force:CGPoint = ccpMult(directionVector, CGFloat(1000));
-//                nA.physicsBody.applyForce(force)
-//            }
-//            
-//        }
-//
-//        return false
-//    }
-    //send high score to leaderboard
-//    func saveHighscore(score:Int) {
-//        
-//        //check if user is signed in
-//        if GKLocalPlayer.localPlayer().authenticated {
-//            
-//            let scoreReporter = GKScore(leaderboardIdentifier: "AlienBlastScore") //leaderboard id here
-//            
-//            scoreReporter.value = Int64(score) //score variable here (same as above)
-//            
-//            let scoreArray: [GKScore] = [scoreReporter]
-//    
-//            GKScore.reportScores(scoreArray, withCompletionHandler: {(error : NSError?) -> Void in
-//                if error != nil {
-//                    print("error")
-//                }
-//            })
-//            
-//        }
-//        
-//    }
-//    
-//    
-//    //shows leaderboard screen
-//    func showLeader() {
-//        let vc = UIApplication.sharedApplication().keyWindow?.rootViewController
-//        let gc = GKGameCenterViewController()
-//        gc.gameCenterDelegate = self
-//        vc?.presentViewController(gc, animated: true, completion: nil)
-//    }
-//    
-//    //hides leaderboard screen
-//    func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController)
-//    {
-//        gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
-//        
-//    }
-//    
-//    //initiate gamecenter
-//    func authenticateLocalPlayer(){
-//        
-//        let localPlayer = GKLocalPlayer.localPlayer()
-//        let vc : UIViewController = (UIApplication.sharedApplication().keyWindow?.rootViewController)!
-//        localPlayer.authenticateHandler = {(viewController, error) -> Void in
-//            
-//            if (viewController != nil) {
-//            
-//                vc.presentViewController(viewController!, animated: true, completion: nil)
-//                //vc.view.addSubview(viewController!.view)
-//                
-//            }
-//                
-//            else {
-//                print("Game Center:",(GKLocalPlayer.localPlayer().authenticated))
-//            }
-//        }
-//    }
+
 
 }
