@@ -1,3 +1,11 @@
+//
+//  MainScene.swift
+//  AlientBlast
+//
+//  Created by Joey etamity on 29/03/2016.
+//  Copyright © 2016 Innovation Apps. All rights reserved.
+//
+
 import Foundation
 import GoogleMobileAds;
 import GameKit
@@ -13,10 +21,12 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
     var currnetLevel : CCNode! = nil;
     func didLoadFromCCB(){
         self.userInteractionEnabled = true;
+        
+        // set physics node collision delegate
         _physicsNode.collisionDelegate = self;
         
-
-    
+        
+        // set up google admob sdk
         CommonBanner.regitserProvider(CommonBannerProvideriAd.classForCoder(), withPriority: CommonBannerPriority.Low, requestParams: nil)
         
         CommonBanner.regitserProvider(CommonBannerProviderGAd.classForCoder(), withPriority: CommonBannerPriority.High,
@@ -32,6 +42,9 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         OALSimpleAudio.sharedInstance().preloadEffect(StaticData.getSoundFile(GameSoundType.HIT.rawValue))
         OALSimpleAudio.sharedInstance().preloadEffect(StaticData.getSoundFile(GameSoundType.WAVEUP.rawValue))
         OALSimpleAudio.sharedInstance().preloadEffect(StaticData.getSoundFile(GameSoundType.LASER.rawValue))
+        
+        
+        // Global event handling
         StaticData.sharedInstance.events.listenTo(GameEvent.GAME_START.rawValue) {
 
             StaticData.sharedInstance.reset()
@@ -95,10 +108,13 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         
     }
     
+    // Show game center leader board
     func showLeaderBoard(){
         EGC.showGameCenterLeaderboard(leaderboardIdentifier: "AlienBlastScore")
         
     }
+    
+    // Show game center score board
     func saveHighscore(score:Int){
         EGC.reportScoreLeaderboard(leaderboardIdentifier: "AlienBlastScore",score: score)
     }
@@ -108,7 +124,7 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
 
         EGC.reportAchievement(progress: 100.00, achievementIdentifier: "achievement\(level)", showBannnerIfCompleted: true)
     }
-    
+    // Get game center all achievements
     func getAllAchievements(){
         EGC.getGKAllAchievementDescription {
             (arrayGKAD) -> Void in
@@ -123,7 +139,7 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         }
     }
     
-    
+    // Show game menu
     func showGameMenu(){
         levelNode.removeAllChildrenWithCleanup(true)
         gameMenu = CCBReader.load("GameMenu") as! GameMenu;
@@ -131,12 +147,13 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         gameMenu.position.y = (CCDirector.sharedDirector().viewSize().height - 480) / 2
         levelNode.addChild(gameMenu)
     }
-    
+     // update layout
     override func viewDidResizeTo(newViewSize: CGSize) {
         super.viewDidResizeTo(newViewSize)
         self.updateLayout()
     }
     
+    // Re-layout the game ui and graphics
     func updateLayout(){
         if (self.gameMenu != nil){
             gameMenu.position.x = (CCDirector.sharedDirector().viewSize().width - 320) / 2
@@ -145,12 +162,12 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         
     }
     
-    
+    // Start game
     func gameStart(){
         self.levelNode.removeAllChildrenWithCleanup(true)
         self.loadLevel("LevelKing")
     }
-    
+    // Load level by level name
     func loadLevel(levelName:String){
         
         let newLevelName:String = "Levels/\(levelName)";
@@ -167,7 +184,7 @@ class MainScene: CCNode,CCPhysicsCollisionDelegate {
         
     }
 
-    
+    // Collision handling
     func ccPhysicsCollisionPostSolve(pair: CCPhysicsCollisionPair!, shape nodeA: CCNode!, bullet nodeB: CCNode!) -> Bool {
         if let nA = nodeA {
             let item : Blaster = nA as! Blaster

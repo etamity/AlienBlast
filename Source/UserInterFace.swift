@@ -2,8 +2,8 @@
 //  INNUserInterFace.swift
 //  AlientBlast
 //
-//  Created by etamity on 29/03/2016.
-//  Copyright © 2016 Apportable. All rights reserved.
+//  Created by Joey etamity on 29/03/2016.
+//  Copyright © 2016 Innovation Apps. All rights reserved.
 //
 
 import Foundation
@@ -91,7 +91,7 @@ class  UserInterFace: CCNode {
         super.viewDidResizeTo(newViewSize)
           self.updateLayout()
     }
-
+    // Re-layout the game ui and graphics
     func updateLayout(){
         touchesBar.contentSize.width = CCDirector.sharedDirector().viewSize().width - 2
         touchBarBg.contentSize.width = CCDirector.sharedDirector().viewSize().width

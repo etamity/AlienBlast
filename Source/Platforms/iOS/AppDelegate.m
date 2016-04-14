@@ -41,7 +41,7 @@
 
 + (void)initialize
 {
-    //configure
+    //Configure rating box
     [SARate sharedInstance].daysUntilPrompt = 5;
     [SARate sharedInstance].usesUntilPrompt = 5;
     [SARate sharedInstance].remindPeriod = 30;
@@ -52,9 +52,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    //configure parse.com Appilcation Id and Client Key
+    
     [Parse setApplicationId:@"DSCvJIIHq3x49mJOxNh3WHbNTwNwHTzD6D9CcBxu"
                   clientKey:@"LJeVksw5Ua7D0cUvuQ8nUZjjkBScC5opG5ti1PD9"];
+    
+    //Reset pus notification badge number to 0
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
+    
+    //Setup push notifications
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound);
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes  categories:nil];
     [application registerUserNotificationSettings:settings];
@@ -63,6 +70,7 @@
     // Configure Cocos2d with the options set in SpriteBuilder
     NSString* configPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Published-iOS"]; // TODO: add support for Published-Android support
     configPath = [configPath stringByAppendingPathComponent:@"configCocos2d.plist"];
+    
     
     NSMutableDictionary* cocos2dSetup = [NSMutableDictionary dictionaryWithContentsOfFile:configPath];
     
@@ -89,21 +97,6 @@
     gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
     gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
    
-//    [CommonBanner regitserProvider:[CommonBannerProvideriAd class]
-//                withPriority:CommonBannerPriorityLow
-//                requestParams:nil];
-//    
-//    
-//    [CommonBanner regitserProvider:[CommonBannerProviderGAd class]
-//                withPriority:CommonBannerPriorityHigh
-//                requestParams:@{keyAdUnitID    : @"ca-app-pub-7660105848150286/2679623255",
-//                    keyTestDevices : @[]}];
-//    
-//    
-//    [CommonBanner setBannerPosition:CommonBannerPositionTop];
-//    [CCDirector sharedDirector].canDisplayAds = YES;
-//    [CommonBanner bannerControllerWithRootViewController:[CCDirector sharedDirector]];
-//    [CommonBanner startManaging];
     [self setupCocos2dWithOptions:cocos2dSetup];
     
     return YES;
@@ -115,6 +108,8 @@
 }
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
+    // Store device token to parse
+    
     NSString *newToken = [deviceToken description];
     newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];

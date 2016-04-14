@@ -2,8 +2,8 @@
 //  INNINGameMenu.swift
 //  AlientBlast
 //
-//  Created by etamity on 29/03/2016.
-//  Copyright © 2016 Apportable. All rights reserved.
+//  Created by Joey etamity on 29/03/2016.
+//  Copyright © 2016 Innovation Apps. All rights reserved.
 //
 
 import Foundation
@@ -19,7 +19,7 @@ class INGameMenu: CCNode{
     func didLoadFromCCB(){
         
       OALSimpleAudio.sharedInstance().playBg(StaticData.getSoundFile(GameSoundType.INGAME_MENU.rawValue), loop:true)
-        //self.gameOverView()
+    
     }
     
     func updateScoreLCD(value:Int){
