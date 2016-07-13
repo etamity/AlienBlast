@@ -1,5 +1,5 @@
 //
-//  INNINGameMenu.swift
+//  INGameMenu.swift
 //  AlientBlast
 //
 //  Created by Joey etamity on 29/03/2016.

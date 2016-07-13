@@ -1,5 +1,5 @@
 //
-//  INNStaticData.swift
+//  StaticData.swift
 //  AlientBlast
 //
 //  Created by Joey etamity on 29/03/2016.
