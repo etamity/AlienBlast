@@ -17,7 +17,7 @@ This is cute cartoon style game, code with Swift 2 and Spritebuilder&cocos2d. Th
 Detail please read : http://www.spritebuilder.com/ 
 3. Download Cocoapod and run command in terminal : pod install 
 4. Use XCode to open .xcworkspace project to modify code 
-5. Use spritebuilder the open the project folder to edit game elements 
+5. Use spritebuilder the open the project folder to edit game elements (You might need change project folder name some thing like 'AlienBlastSwift.spritebuilder')
 6. Export project from spritebulder (Important!) 
 7. Compile the project from XCode and enjoy it :)
 

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18809E0BF87BEC7512E0B8E3 /* Pods_AlienBlastSwift_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5036A1C6F347891C8D14F69 /* Pods_AlienBlastSwift_iOS.framework */; };
+		0F7986D3845B0842A0A27093 /* Pods_AlienBlastSwift_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFEB6CD314F6251D0BB2B51D /* Pods_AlienBlastSwift_iOS.framework */; };
 		5B12102A197484DD004C1E1D /* AlienBlastSwiftActivity.java in Sources */ = {isa = PBXBuildFile; fileRef = 5B12101B19748413004C1E1D /* AlienBlastSwiftActivity.java */; };
 		5B121030197484FA004C1E1D /* AlienBlastSwiftActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* AlienBlastSwiftActivity.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
@@ -151,6 +151,7 @@
 		5B121033197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Android/Info.plist; sourceTree = "<group>"; };
 		5B121034197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/iOS/Info.plist; sourceTree = "<group>"; };
 		5BA4619E1974C88900785744 /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = AndroidManifest.xml; path = Platforms/Android/AndroidManifest.xml; sourceTree = "<group>"; };
+		7101719747311400C3E6C903 /* Pods-AlienBlastSwift iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlienBlastSwift iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlienBlastSwift iOS/Pods-AlienBlastSwift iOS.release.xcconfig"; sourceTree = "<group>"; };
 		7A046D7519E84C36004C4763 /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainScene.swift; path = Source/MainScene.swift; sourceTree = "<group>"; };
 		7A4035FF19DDEE84007B6E8F /* AlienBlastSwift Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AlienBlastSwift Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A40360219DDEE84007B6E8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Mac/Info.plist; sourceTree = "<group>"; };
@@ -166,7 +167,7 @@
 		7BF6AF9F1A425F9800FFF9BA /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../../../../Library/SBAndroid/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		8392007918EE8E3300B6C429 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		927F61BF196C771E000F43EF /* AlienBlastSwift Android.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AlienBlastSwift Android.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5036A1C6F347891C8D14F69 /* Pods_AlienBlastSwift_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlienBlastSwift_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFEB6CD314F6251D0BB2B51D /* Pods_AlienBlastSwift_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlienBlastSwift_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B737893A180761570076A88C /* Published-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Published-iOS"; path = "Source/Resources/Published-iOS"; sourceTree = SOURCE_ROOT; };
 		B737893D1807617C0076A88C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Source/Platforms/iOS/AppDelegate.h; sourceTree = "<group>"; };
 		B737893E1807617C0076A88C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Source/Platforms/iOS/AppDelegate.m; sourceTree = "<group>"; };
@@ -206,7 +207,6 @@
 		C09D27391CB0523600AD8EDB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C09D273F1CB06B8200AD8EDB /* CCActionMoveToNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCActionMoveToNode.h; path = Source/libs/CCActionMoveToNode/CCActionMoveToNode.h; sourceTree = "<group>"; };
 		C09D27401CB06B8200AD8EDB /* CCActionMoveToNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCActionMoveToNode.m; path = Source/libs/CCActionMoveToNode/CCActionMoveToNode.m; sourceTree = "<group>"; };
-		C9F589AAA77AAA294623157D /* Pods-AlienBlastSwift iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlienBlastSwift iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlienBlastSwift iOS/Pods-AlienBlastSwift iOS.release.xcconfig"; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 		D4477A111CAEA56E0072FE34 /* SentryFinger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SentryFinger.swift; path = Source/SentryFinger.swift; sourceTree = "<group>"; };
 		D4477A1F1CAEC04F0072FE34 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -220,7 +220,7 @@
 		D4F5476D1CABE6FE00ADE204 /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animations.swift; path = Source/Animations.swift; sourceTree = "<group>"; };
 		D4F5476E1CABE6FE00ADE204 /* Blaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Blaster.swift; path = Source/Blaster.swift; sourceTree = "<group>"; };
 		D4F5477E1CAC1CC700ADE204 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
-		DBBF36478577554DDDEDE1B3 /* Pods-AlienBlastSwift iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlienBlastSwift iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlienBlastSwift iOS/Pods-AlienBlastSwift iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E082CB56537C43420E6F0693 /* Pods-AlienBlastSwift iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlienBlastSwift iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlienBlastSwift iOS/Pods-AlienBlastSwift iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,13 +285,22 @@
 				B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */,
 				B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */,
 				B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */,
-				18809E0BF87BEC7512E0B8E3 /* Pods_AlienBlastSwift_iOS.framework in Frameworks */,
+				0F7986D3845B0842A0A27093 /* Pods_AlienBlastSwift_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F79DEE1897153AC6728B347 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E082CB56537C43420E6F0693 /* Pods-AlienBlastSwift iOS.debug.xcconfig */,
+				7101719747311400C3E6C903 /* Pods-AlienBlastSwift iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5B12100D197483EE004C1E1D /* res */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,15 +464,6 @@
 			name = libs;
 			sourceTree = "<group>";
 		};
-		9EA51863AD81215441CA00C2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DBBF36478577554DDDEDE1B3 /* Pods-AlienBlastSwift iOS.debug.xcconfig */,
-				C9F589AAA77AAA294623157D /* Pods-AlienBlastSwift iOS.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,7 +493,7 @@
 				B77F1CCF17B978D8009739AE /* Supporting Files */,
 				B77F1B3017B978D7009739AE /* Frameworks */,
 				B77F1B2F17B978D7009739AE /* Products */,
-				9EA51863AD81215441CA00C2 /* Pods */,
+				2F79DEE1897153AC6728B347 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -538,7 +538,7 @@
 				B77F1B3D17B978D7009739AE /* Foundation.framework */,
 				B77F1B3F17B978D7009739AE /* CoreGraphics.framework */,
 				B77F1B4117B978D7009739AE /* CoreText.framework */,
-				A5036A1C6F347891C8D14F69 /* Pods_AlienBlastSwift_iOS.framework */,
+				AFEB6CD314F6251D0BB2B51D /* Pods_AlienBlastSwift_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1335,7 +1335,7 @@
 		};
 		B77F1CDF17B978D8009739AE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DBBF36478577554DDDEDE1B3 /* Pods-AlienBlastSwift iOS.debug.xcconfig */;
+			baseConfigurationReference = E082CB56537C43420E6F0693 /* Pods-AlienBlastSwift iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1378,7 +1378,7 @@
 		};
 		B77F1CE017B978D8009739AE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9F589AAA77AAA294623157D /* Pods-AlienBlastSwift iOS.release.xcconfig */;
+			baseConfigurationReference = 7101719747311400C3E6C903 /* Pods-AlienBlastSwift iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
