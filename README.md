@@ -29,7 +29,7 @@ Detail please read : http://www.spritebuilder.com/
 
 ### Description
 The aliens are coming and their goal is to invade and destroy Earth. Fighting superior technology, mankind’s best weapon is the will to survive. Use your finger defend our world!
-Game also available at [App Store](https://itunes.apple.com/us/app/id1098323034), you can watch [Youtube Preview](https://itunes.apple.com/us/app/id1098323034)
+Game also available at [App Store](https://itunes.apple.com/us/app/id1098323034), you can watch [Youtube Preview](https://www.youtube.com/watch?v=_uYs9T0X9L4)
 
 
 ![alt tag](http://a3.mzstatic.com/us/r30/Purple49/v4/fd/71/de/fd71deb3-7e75-2d3d-5de1-e859712af0ef/screen322x572.jpeg)
